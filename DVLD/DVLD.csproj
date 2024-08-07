@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DVLDDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DVLDDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ManagePeople\frmPersonInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +84,12 @@
     <Compile Include="UserControls\UcPersonDetails.Designer.cs">
       <DependentUpon>UcPersonDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\frmUsersManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmUsersManagement.Designer.cs">
+      <DependentUpon>frmUsersManagement.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ManagePeople\frmPersonInfo.resx">
       <DependentUpon>frmPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +115,20 @@
     <EmbeddedResource Include="UserControls\UcPersonDetails.resx">
       <DependentUpon>UcPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmUsersManagement.resx">
+      <DependentUpon>frmUsersManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DVLDDataSet.xsc">
+      <DependentUpon>DVLDDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DVLDDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DVLDDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DVLDDataSet.xss">
+      <DependentUpon>DVLDDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -144,7 +169,9 @@
   <ItemGroup>
     <None Include="Resources\icons8-delete-64.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\png-clipart-computer-icons-user-management-please-don-t-climb-the-freely-miscellaneous-computer-network-thumbnail.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-close-30.png" />
   </ItemGroup>
@@ -153,6 +180,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-close-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account-settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drivers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bus_741411.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bycicle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tractor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\taxi_2401174.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\truck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\human_2640788.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

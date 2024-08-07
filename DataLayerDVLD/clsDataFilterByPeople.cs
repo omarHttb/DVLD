@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace DataLayerDVLD
 {
-    public class clsDataFilterBy
+    public class clsDataFilterByPeople
     {
         public static DataTable GetFilteredResultByCountry(string TxtFilter)
         {

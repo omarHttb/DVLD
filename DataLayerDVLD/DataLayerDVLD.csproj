@@ -42,9 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsDataCountries.cs" />
-    <Compile Include="clsDataFilterBy.cs" />
+    <Compile Include="clsDataFilterByPeople.cs" />
+    <Compile Include="clsDataFilterByUser.cs" />
     <Compile Include="clsDataLayerSettings.cs" />
     <Compile Include="clsDataPeople.cs" />
+    <Compile Include="clsDataUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

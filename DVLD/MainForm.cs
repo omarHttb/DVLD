@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using DVLD.Users;
 
 namespace DVLD
 {
@@ -31,5 +32,35 @@ namespace DVLD
         }
 
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("not implemented yet");
+
+        }
+
+        private void BtnApplication_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("not implemented yet");
+        }
+
+        private void BtnDrivers_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("not implemented yet");
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           frmUsersManagement frmUsersManagement = new frmUsersManagement();
+            frmUsersManagement.ShowDialog();
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+ 
     }
 }

@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsCountries.cs" />
-    <Compile Include="clsFilterBy.cs" />
+    <Compile Include="clsFilterByPeople.cs" />
+    <Compile Include="clsFilterByUser.cs" />
     <Compile Include="clsPeople.cs" />
+    <Compile Include="clsUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

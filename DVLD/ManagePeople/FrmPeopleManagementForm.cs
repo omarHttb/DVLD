@@ -133,7 +133,7 @@ namespace DVLD
         {
 
 
-            DGVAllPeople.DataSource = clsFilterBy.GetFilteredResult(_FilterChoice,txtFilter.Text);
+            DGVAllPeople.DataSource = clsFilterByPeople.GetFilteredResult(_FilterChoice,txtFilter.Text);
 
             LblNumberOfPeople.Text = DGVAllPeople.Rows.Count.ToString();
 
