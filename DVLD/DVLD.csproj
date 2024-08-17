@@ -46,10 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationMenu\frmApplicationMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApplicationMenu\frmApplicationMenu.Designer.cs">
+      <DependentUpon>frmApplicationMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="DVLDDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DVLDDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalProperties.cs" />
+    <Compile Include="Login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageApplicationTypes\frmManageApplicationTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageApplicationTypes\frmManageApplicationTypes.Designer.cs">
+      <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageApplicationTypes\FrmUpdateApplicationType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageApplicationTypes\FrmUpdateApplicationType.Designer.cs">
+      <DependentUpon>FrmUpdateApplicationType.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagePeople\frmPersonInfo.cs">
       <SubType>Form</SubType>
@@ -75,14 +100,56 @@
     <Compile Include="ManagePeople\FrmPeopleManagementForm.Designer.cs">
       <DependentUpon>FrmPeopleManagementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageTestTypes\frmManageTestTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageTestTypes\frmManageTestTypes.Designer.cs">
+      <DependentUpon>frmManageTestTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageTestTypes\frmUpdateTestType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageTestTypes\frmUpdateTestType.Designer.cs">
+      <DependentUpon>frmUpdateTestType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewLocalDrivingLicense\NewLocalDrivingLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewLocalDrivingLicense\NewLocalDrivingLicense.Designer.cs">
+      <DependentUpon>NewLocalDrivingLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="textFormatValidation\TextFormatValidation.cs" />
-    <Compile Include="UserControls\UcPersonDetails.cs">
+    <Compile Include="Person and user  UserControls\UcPersonDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UcPersonDetails.Designer.cs">
+    <Compile Include="Person and user  UserControls\UcPersonDetails.Designer.cs">
       <DependentUpon>UcPersonDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Person and user  UserControls\UcSearchForPerson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Person and user  UserControls\UcSearchForPerson.Designer.cs">
+      <DependentUpon>UcSearchForPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Person and user  UserControls\UcUserDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Person and user  UserControls\UcUserDetails.Designer.cs">
+      <DependentUpon>UcUserDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmAddUser.Designer.cs">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\FrmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\FrmChangePassword.Designer.cs">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\frmUsersManagement.cs">
       <SubType>Form</SubType>
@@ -90,6 +157,24 @@
     <Compile Include="Users\frmUsersManagement.Designer.cs">
       <DependentUpon>frmUsersManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\frmUserDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmUserDetails.Designer.cs">
+      <DependentUpon>frmUserDetails.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ApplicationMenu\frmApplicationMenu.resx">
+      <DependentUpon>frmApplicationMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageApplicationTypes\frmManageApplicationTypes.resx">
+      <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageApplicationTypes\FrmUpdateApplicationType.resx">
+      <DependentUpon>FrmUpdateApplicationType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManagePeople\frmPersonInfo.resx">
       <DependentUpon>frmPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +187,15 @@
     <EmbeddedResource Include="ManagePeople\FrmPeopleManagementForm.resx">
       <DependentUpon>FrmPeopleManagementForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageTestTypes\frmManageTestTypes.resx">
+      <DependentUpon>frmManageTestTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageTestTypes\frmUpdateTestType.resx">
+      <DependentUpon>frmUpdateTestType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewLocalDrivingLicense\NewLocalDrivingLicense.resx">
+      <DependentUpon>NewLocalDrivingLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -112,11 +206,26 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UserControls\UcPersonDetails.resx">
+    <EmbeddedResource Include="Person and user  UserControls\UcPersonDetails.resx">
       <DependentUpon>UcPersonDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Person and user  UserControls\UcSearchForPerson.resx">
+      <DependentUpon>UcSearchForPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Person and user  UserControls\UcUserDetails.resx">
+      <DependentUpon>UcUserDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmAddUser.resx">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\FrmChangePassword.resx">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmUsersManagement.resx">
       <DependentUpon>frmUsersManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmUserDetails.resx">
+      <DependentUpon>frmUserDetails.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DVLDDataSet.xsc">
       <DependentUpon>DVLDDataSet.xsd</DependentUpon>
@@ -219,6 +328,60 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\human_2640788.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search person.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\noun-search-group-79381.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search People.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-change-password-58.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-login-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-login-1001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c4a9d686515de3e373f6e6d3e7256b7b.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\process.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multiple-users-silhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\license.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\specifications.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\place.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\global-network.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

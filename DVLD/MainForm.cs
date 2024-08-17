@@ -9,19 +9,31 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using DVLD.Users;
+using DVLD.Login;
+using BusinessLayerDVLD;
+using DVLD.ManageApplicationTypes;
 
 namespace DVLD
 {
     public partial class MainForm : Form
     {
+
         public MainForm()
         {
             InitializeComponent();
         }
-
+        public MainForm(string UserName)
+        {
+            InitializeComponent();
+            lblLoggedInUser.Text = UserName;
+     
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
+            clsUsers _clsUsers = clsUsers.GetUserIdAndPersonIdByUserName(lblLoggedInUser.Text);
 
+            GlobalProperties.LoggedInUserID = _clsUsers.UserID;
+            GlobalProperties.LoggedInPersonID = _clsUsers.PersonID;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,17 +43,13 @@ namespace DVLD
             frm.ShowDialog();
         }
 
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void BtnUsers_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("not implemented yet");
-
+            frmUsersManagement frmUsersManagement = new frmUsersManagement();
+            frmUsersManagement.ShowDialog();
         }
 
-        private void BtnApplication_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("not implemented yet");
-        }
+
 
         private void BtnDrivers_Click(object sender, EventArgs e)
         {
@@ -49,18 +57,74 @@ namespace DVLD
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-           frmUsersManagement frmUsersManagement = new frmUsersManagement();
-            frmUsersManagement.ShowDialog();
 
-        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+            Application.Exit();
+
         }
 
- 
+
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void userDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserDetails frmUserDetails = new frmUserDetails(GlobalProperties.LoggedInUserID,GlobalProperties.LoggedInPersonID);
+            frmUserDetails.ShowDialog();
+        }
+
+        private void changePasswordToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmChangePassword frmChangePassword = new FrmChangePassword(GlobalProperties.LoggedInUserID, GlobalProperties.LoggedInPersonID);
+            frmChangePassword.ShowDialog();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin frm = new frmLogin();
+            frm.Show();
+            this.Hide();
+        }
+
+
+
+        private void BtnApplication_Click(object sender, EventArgs e)
+        {
+  
+            frmApplicationMenu frm = new frmApplicationMenu();
+            frm.ShowDialog();
+        
+        }
+
+        private void btnManageApplicationTypes_Click(object sender, EventArgs e)
+        {
+            frmManageApplicationTypes frm = new frmManageApplicationTypes();
+            frm.Show();
+        }
+
+        private void btnDetainLicense_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not implemented yet");
+        }
+
+        private void BtnApplications_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not implemented yet");
+
+        }
+
+        private void btnDrivingLicense_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not implemented yet");
+
+        }
+
+
     }
 }

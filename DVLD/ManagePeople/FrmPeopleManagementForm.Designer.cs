@@ -61,7 +61,6 @@
             this.DGVAllPeople.Name = "DGVAllPeople";
             this.DGVAllPeople.Size = new System.Drawing.Size(1160, 344);
             this.DGVAllPeople.TabIndex = 0;
-            this.DGVAllPeople.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVAllPeople_CellContentClick);
             // 
             // CmsRecords
             // 
@@ -240,7 +239,7 @@
             this.Controls.Add(this.DGVAllPeople);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FrmPeopleManagementForm";
-            this.Text = "PeopleManagementForm";
+            this.Text = "Manage people";
             this.Load += new System.EventHandler(this.PeopleManagementForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVAllPeople)).EndInit();
             this.CmsRecords.ResumeLayout(false);

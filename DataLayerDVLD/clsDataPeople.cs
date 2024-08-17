@@ -11,6 +11,74 @@ namespace DataLayerDVLD
     public class clsDataPeople
     {
 
+        public static bool GetPersonByNationalNo(ref int ID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,
+           ref DateTime DateOfBirth, ref int Gender, ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID,
+           ref string ImagePath)
+        {
+
+            bool isFound = false;
+            SqlConnection conn = new SqlConnection(clsDataLayerSettings.ConnectionString);
+
+            string query = "select * from People where NationalNo = @NationalNo;";
+
+            SqlCommand command = new SqlCommand(query, conn);
+
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    isFound = true;
+                    FirstName = (string)reader["FirstName"];
+                    SecondName = (string)reader["SecondName"];
+                    ThirdName = (string)reader["ThirdName"];
+                    LastName = (string)reader["LastName"];
+                    Gender = (byte)reader["Gendor"];
+                    Phone = (string)reader["Phone"];
+                    Address = (string)reader["Address"];
+                    NationalityCountryID = (int)reader["NationalityCountryID"];
+                    DateOfBirth = (DateTime)reader["DateOfBirth"];
+                    ID = (int)reader["PersonID"];
+
+                    if (reader["ImagePath"] != DBNull.Value)
+                    {
+                        ImagePath = (string)reader["ImagePath"];
+                    }
+                    else
+                    {
+                        ImagePath = "";
+                    }
+
+                    if (reader["Email"] != DBNull.Value)
+                    {
+                        Email = (string)reader["Email"];
+                    }
+                    else
+                    {
+                        ImagePath = "";
+                    }
+                }
+                else
+                {
+                    isFound = false;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isFound;
+        }
+
         public static bool GetPersonByID( ref int ID,ref string NationalNo,ref string FirstName,ref string SecondName,ref string ThirdName,ref string LastName,
            ref DateTime DateOfBirth, ref int Gender,ref string Address, ref string Phone,ref  string Email,ref int NationalityCountryID,
            ref string ImagePath)
@@ -233,6 +301,44 @@ namespace DataLayerDVLD
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                {
+
+                    return true;
+                }
+            }
+
+
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return false;
+        }
+        public static bool IsPersonIDFound(string PersonID)
+        {
+
+
+            SqlConnection connection = new SqlConnection(clsDataLayerSettings.ConnectionString);
+
+            string query = "select PersonID from People where PersonID = @PersonID";
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
 
             try
             {

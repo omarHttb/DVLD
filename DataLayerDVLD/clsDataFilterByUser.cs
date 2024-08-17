@@ -19,14 +19,14 @@ namespace DataLayerDVLD
                 "    Users.UserID as 'User ID', Users.PersonID as 'Person ID', " +
                 " (People.FirstName+' ' + People.SecondName+' ' + People.ThirdName +' ' + People.LastName) as 'Full name' ," +
                 " Users.UserName as 'User Name', Users.IsActive as 'User Active'FROM     " +
-                "  Users INNER JOIN People ON Users.PersonID = People.PersonID WHERE UserID like @TxtFilter ";
+                "  Users INNER JOIN People ON Users.PersonID = People.PersonID WHERE UserID = @TxtFilter ";
 
 
 
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@TxtFilter", "%" + TxtFilter + "%");
+            command.Parameters.AddWithValue("@TxtFilter", TxtFilter);
 
 
             try
@@ -62,14 +62,14 @@ namespace DataLayerDVLD
                 "    Users.UserID as 'User ID', Users.PersonID as 'Person ID', " +
                 " (People.FirstName+' ' + People.SecondName+' ' + People.ThirdName +' ' + People.LastName) as 'Full name' ," +
                 " Users.UserName as 'User Name', Users.IsActive as 'User Active'FROM     " +
-                "  Users INNER JOIN People ON Users.PersonID = People.PersonID WHERE Users.PersonID like @TxtFilter ";
+                "  Users INNER JOIN People ON Users.PersonID = People.PersonID WHERE Users.PersonID = @TxtFilter ";
 
 
 
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@TxtFilter", "%" + TxtFilter + "%");
+            command.Parameters.AddWithValue("@TxtFilter", TxtFilter );
 
 
             try

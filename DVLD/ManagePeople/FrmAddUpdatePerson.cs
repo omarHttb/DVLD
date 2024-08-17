@@ -16,18 +16,34 @@ namespace DVLD
 {
     public partial class FrmAddUpdatePerson : Form
     {
-        enum enIsValidated { IsValidated, NotValidated }
         enum enAddOrUpdate { AddNew = 0, Update = 1 }
         private enAddOrUpdate AddOrUpdate;
-        enIsValidated IsValidated = enIsValidated.NotValidated;
         int _PersonId;
         private static string _FilePath { get; set; }
         private static string _FileName { get; set; }
         private static string _FileExtension { get; set; }
         bool MarkForImageDelete = false;
+        bool IsNationalNoValid = false;
 
+        // this is used for national no validation
+        string IsNationalNoSameAsCurrent = "";
+
+        // handling data back to other forms
+        
+        public bool IsDataBack = false;
+        bool isSavedUsingDelegate = false;
+        public delegate void DataBackEventHandler(object sender, int PersonID);
+        public event DataBackEventHandler DataBack;
+        private void _IsdelegateExist()
+        {
+            if(isSavedUsingDelegate)
+                IsDataBack = true;  
+        }
+
+        //-- handling data back to other forms End
         clsPeople _people;
-        public FrmAddUpdatePerson(int personId, bool UpdateMode)
+
+        public FrmAddUpdatePerson(int personId)
         {
             InitializeComponent();
             _PersonId = personId;
@@ -36,22 +52,26 @@ namespace DVLD
             {
                 lblId.Text = personId.ToString();
             }
-            if (lblId.Text == "N/A")
-                AddOrUpdate = enAddOrUpdate.AddNew;
-            else
-            {
-                AddOrUpdate = enAddOrUpdate.Update;
-            }
+   
+            IsNationalNoValid = true;
 
-            if(UpdateMode)
-            {
-                IsValidated = enIsValidated.IsValidated;
-            }
+            AddOrUpdate = enAddOrUpdate.Update;
+            lblAddNewPerson.Text = "Update Person";
+
         }
         public FrmAddUpdatePerson()
         {
             InitializeComponent();
 
+        }
+
+        public FrmAddUpdatePerson(bool IsDelegate)
+        {
+            InitializeComponent();
+            if(IsDelegate == true)
+            {
+                isSavedUsingDelegate =true ;
+            }
         }
 
         private bool ImageExist()
@@ -76,9 +96,15 @@ namespace DVLD
                 cbCountry.SelectedIndex = 89;
 
             }
+            else
+            {
+                ImageExist();
+                _LoadMaxLegalAgeDateTime();
 
-            // imageFunciton
-            ImageExist();
+            }
+
+            
+          
 
         }
 
@@ -124,7 +150,7 @@ namespace DVLD
                 return;
             }
 
-            _people = clsPeople.FindPerson(Convert.ToInt16(lblId.Text));
+            _people = clsPeople.FindPersonById(Convert.ToInt16(lblId.Text));
 
             if (_people == null)
             {
@@ -137,6 +163,7 @@ namespace DVLD
             txtSecondName.Text = _people.SecondName;
             txtThirdName.Text = _people.ThirdName;
             txtLastName.Text = _people.LastName;
+            
             txtNationalNo.Text = _people.NationalNo;
             txtPhone.Text = _people.Phone;
             if (_people.Email != "")
@@ -159,6 +186,9 @@ namespace DVLD
 
             cbCountry.SelectedIndex = _people.NationalityCountryId - 1;
 
+
+            //for national no validation when in update mode
+            IsNationalNoSameAsCurrent = _people.NationalNo;
         }
 
 
@@ -167,160 +197,180 @@ namespace DVLD
 
         // This Entire Code Is FOR Validating ALL INPUTS!!
         //------------------------------------------------------------------------------------------------------------------------------------
-        private void txtFirstName_Validating(object sender, CancelEventArgs e)
+        
+        private void txtFirstName_Validating_1(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtFirstName.Text))
             {
 
                 EpAddUpdate.SetError(txtFirstName, "Field is empty");
-                IsValidated = enIsValidated.NotValidated;
             }
             else
             {
                 EpAddUpdate.SetError(txtFirstName, "");
-                IsValidated = enIsValidated.IsValidated;
             }
         }
 
-        private void txtSecondName_Validating(object sender, CancelEventArgs e)
+        private void txtSecondName_Validating_1(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtSecondName.Text))
             {
 
                 EpAddUpdate.SetError(txtSecondName, "Field is empty");
-                IsValidated = enIsValidated.NotValidated;
 
             }
             else
             {
                 EpAddUpdate.SetError(txtSecondName, "");
-                IsValidated = enIsValidated.IsValidated;
 
             }
         }
 
-        private void txtThirdName_Validating(object sender, CancelEventArgs e)
+        private void txtThirdName_Validating_1(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtThirdName.Text))
             {
 
                 EpAddUpdate.SetError(txtThirdName, "Field is empty");
-                IsValidated = enIsValidated.NotValidated;
 
             }
             else
             {
                 EpAddUpdate.SetError(txtThirdName, "");
-                IsValidated = enIsValidated.IsValidated;
 
             }
         }
 
-        private void txtLastName_TextChanged(object sender, EventArgs e)
+        private void txtLastName_Validating(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtLastName.Text))
             {
 
                 EpAddUpdate.SetError(txtLastName, "Field is empty");
-                IsValidated = enIsValidated.NotValidated;
 
             }
             else
             {
                 EpAddUpdate.SetError(txtLastName, "");
-                IsValidated = enIsValidated.IsValidated;
 
             }
         }
-
-        private void txtNationalNo_TextChanged(object sender, EventArgs e)
+        //koko2
+        private bool isUserNameExist()
         {
+            if(AddOrUpdate == enAddOrUpdate.Update)
+            {
+                if(txtNationalNo.Text == IsNationalNoSameAsCurrent)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+
+        }
+
+        private void txtNationalNo_Validating(object sender, EventArgs e)
+        {  
+            if(isUserNameExist())
+            {
+                IsNationalNoValid = true;
+                EpAddUpdate.SetError(txtNationalNo, "");
+                return;
+            }
             if (string.IsNullOrWhiteSpace(txtNationalNo.Text))
             {
 
                 EpAddUpdate.SetError(txtNationalNo, "Field is empty");
-                IsValidated = enIsValidated.NotValidated;
+                IsNationalNoValid = false;
+
 
             }
             else if (clsPeople.IsNationalNoFound(txtNationalNo.Text))
             {
                 EpAddUpdate.SetError(txtNationalNo, "national number is used for another person");
-                IsValidated = enIsValidated.NotValidated;
+                IsNationalNoValid = false;
 
             }
             else
             {
                 EpAddUpdate.SetError(txtNationalNo, "");
-                IsValidated = enIsValidated.IsValidated;
-
+                IsNationalNoValid = true;
             }
         }
 
-        private void txtPhone_Validating(object sender, CancelEventArgs e)
+        private void txtPhone_Validating_1(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
 
                 EpAddUpdate.SetError(txtPhone, "Field is empty");
-                IsValidated = enIsValidated.NotValidated;
 
             }
             else
             {
                 EpAddUpdate.SetError(txtPhone, "");
-                IsValidated = enIsValidated.IsValidated;
 
             }
         }
 
-        private void txtAddress_Validating(object sender, CancelEventArgs e)
+        private void txtAddress_Validating_1(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtAddress.Text))
             {
 
                 EpAddUpdate.SetError(txtAddress, "Field is empty");
-                IsValidated = enIsValidated.NotValidated;
 
             }
             else
             {
                 EpAddUpdate.SetError(txtAddress, "");
-                IsValidated = enIsValidated.IsValidated;
 
             }
         }
 
-        private void TxtEmail_Validating(object sender, CancelEventArgs e)
+        private void TxtEmail_Validating_1(object sender, CancelEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(TxtEmail.Text))
                 if (!TextFormatValidation.IsValidEmail(TxtEmail.Text))
                 {
 
                     EpAddUpdate.SetError(TxtEmail, "Wrong email format");
-                    IsValidated = enIsValidated.NotValidated;
 
                 }
                 else
                 {
                     EpAddUpdate.SetError(TxtEmail, "");
-                    IsValidated = enIsValidated.IsValidated;
 
                 }
             else
             {
                 EpAddUpdate.SetError(TxtEmail, "");
-                IsValidated = enIsValidated.IsValidated;
 
+            }
+
+        }
+        private bool ValidateFields()
+        {
+            if (txtFirstName.Text != "" && txtSecondName.Text != "" && txtThirdName.Text != "" 
+                && txtLastName.Text != "" &&txtAddress.Text != "" && txtNationalNo.Text != "" 
+                && txtPhone.Text != "")
+            {
+                return true;
+            }
+            else
+            { 
+                return false;
             }
 
         }
         //------------------------------------------------------------------------------------------------------------------------------------
 
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
 
 
         public string SaveImage()
@@ -420,11 +470,13 @@ namespace DVLD
             }
         }
 
+        
+
         private void btnSave_Click_1(object sender, EventArgs e)
         {
             short SelectedComboBox = (short)(cbCountry.SelectedIndex + 1);
 
-
+            //koko
             // load inforamtion to buisness layer
             _people.FirstName = txtFirstName.Text;
             _people.SecondName = txtSecondName.Text;
@@ -441,16 +493,20 @@ namespace DVLD
             //check for image
             ValidateImage();
 
-            // check if everything is validated
-            if (IsValidated == enIsValidated.IsValidated)
+           
+            if (ValidateFields() && IsNationalNoValid == true )
             {
 
                 _people.save();
 
                 lblId.Text = _people.ID.ToString();
 
-
+                lblAddNewPerson.Text = "Update Person";
                 MessageBox.Show("Saved Successfully", "Record", MessageBoxButtons.OK);
+
+                // in case of databack using delegate this will be true so it sends data back to
+                // original form 
+                _IsdelegateExist();
             }
             else
             {
@@ -458,11 +514,17 @@ namespace DVLD
             }
 
             AddOrUpdate = enAddOrUpdate.Update;
+            IsNationalNoSameAsCurrent =  txtNationalNo.Text;
 
         }
 
         private void btnClose_Click_1(object sender, EventArgs e)
         {
+            if(IsDataBack == true && isSavedUsingDelegate == true)
+            {
+    
+                DataBack?.Invoke(this,int.Parse(lblId.Text));
+            }
             this.Close();
         }
 

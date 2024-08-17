@@ -34,12 +34,15 @@
             this.CbFilter = new System.Windows.Forms.ComboBox();
             this.lblPeopleManagement = new System.Windows.Forms.Label();
             this.DgvAllUsers = new System.Windows.Forms.DataGridView();
+            this.CmUsers = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblNumberOfUsers = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pbPeople = new System.Windows.Forms.PictureBox();
             this.peopleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dVLDDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dVLDDataSet = new DVLD.DVLDDataSet();
@@ -49,14 +52,18 @@
             this.usersTableAdapter = new DVLD.DVLDDataSetTableAdapters.UsersTableAdapter();
             this.rbIsActive = new System.Windows.Forms.RadioButton();
             this.rbNotActive = new System.Windows.Forms.RadioButton();
+            this.RbActiveAndNotActive = new System.Windows.Forms.RadioButton();
+            this.PbAddNewUser = new System.Windows.Forms.PictureBox();
+            this.pbPeople = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvAllUsers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).BeginInit();
+            this.CmUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbAddNewUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).BeginInit();
             this.SuspendLayout();
             // 
             // txtFilter
@@ -68,6 +75,7 @@
             this.txtFilter.TabIndex = 17;
             this.txtFilter.Visible = false;
             this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
+            this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilter_KeyPress);
             // 
             // label2
             // 
@@ -113,6 +121,7 @@
             this.DgvAllUsers.AllowUserToDeleteRows = false;
             this.DgvAllUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvAllUsers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.DgvAllUsers.ContextMenuStrip = this.CmUsers;
             this.DgvAllUsers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.DgvAllUsers.Location = new System.Drawing.Point(70, 260);
             this.DgvAllUsers.MultiSelect = false;
@@ -121,11 +130,57 @@
             this.DgvAllUsers.Size = new System.Drawing.Size(930, 344);
             this.DgvAllUsers.TabIndex = 12;
             // 
+            // CmUsers
+            // 
+            this.CmUsers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.infoToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.deleteToolStripMenuItem,
+            this.changePasswordToolStripMenuItem});
+            this.CmUsers.Name = "CmUsers";
+            this.CmUsers.Size = new System.Drawing.Size(169, 92);
+            // 
+            // infoToolStripMenuItem
+            // 
+            this.infoToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infoToolStripMenuItem.Image = global::DVLD.Properties.Resources.view_details;
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.infoToolStripMenuItem.Text = "Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_edit_64;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.deleteToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_delete_64;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Image = global::DVLD.Properties.Resources.icons8_change_password_58;
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            // 
             // lblNumberOfUsers
             // 
             this.lblNumberOfUsers.AutoSize = true;
             this.lblNumberOfUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberOfUsers.Location = new System.Drawing.Point(355, 606);
+            this.lblNumberOfUsers.Location = new System.Drawing.Point(365, 608);
             this.lblNumberOfUsers.Name = "lblNumberOfUsers";
             this.lblNumberOfUsers.Size = new System.Drawing.Size(29, 31);
             this.lblNumberOfUsers.TabIndex = 18;
@@ -144,9 +199,9 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(916, 612);
+            this.btnClose.Location = new System.Drawing.Point(912, 610);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(84, 32);
+            this.btnClose.Size = new System.Drawing.Size(88, 36);
             this.btnClose.TabIndex = 20;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -161,28 +216,6 @@
             this.label4.Size = new System.Drawing.Size(101, 25);
             this.label4.TabIndex = 22;
             this.label4.Text = "Add User";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::DVLD.Properties.Resources.add_user;
-            this.pictureBox1.Location = new System.Drawing.Point(877, 182);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(123, 72);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // pbPeople
-            // 
-            this.pbPeople.Image = global::DVLD.Properties.Resources.user;
-            this.pbPeople.Location = new System.Drawing.Point(371, 12);
-            this.pbPeople.Name = "pbPeople";
-            this.pbPeople.Size = new System.Drawing.Size(258, 159);
-            this.pbPeople.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPeople.TabIndex = 13;
-            this.pbPeople.TabStop = false;
             // 
             // peopleBindingSource
             // 
@@ -245,15 +278,52 @@
             this.rbNotActive.Visible = false;
             this.rbNotActive.CheckedChanged += new System.EventHandler(this.rbNotActive_CheckedChanged);
             // 
+            // RbActiveAndNotActive
+            // 
+            this.RbActiveAndNotActive.AutoSize = true;
+            this.RbActiveAndNotActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RbActiveAndNotActive.Location = new System.Drawing.Point(716, 226);
+            this.RbActiveAndNotActive.Name = "RbActiveAndNotActive";
+            this.RbActiveAndNotActive.Size = new System.Drawing.Size(45, 22);
+            this.RbActiveAndNotActive.TabIndex = 25;
+            this.RbActiveAndNotActive.TabStop = true;
+            this.RbActiveAndNotActive.Text = "All ";
+            this.RbActiveAndNotActive.UseVisualStyleBackColor = true;
+            this.RbActiveAndNotActive.Visible = false;
+            this.RbActiveAndNotActive.CheckedChanged += new System.EventHandler(this.RbActiveAndNotActive_CheckedChanged);
+            // 
+            // PbAddNewUser
+            // 
+            this.PbAddNewUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbAddNewUser.Image = global::DVLD.Properties.Resources.add_user;
+            this.PbAddNewUser.Location = new System.Drawing.Point(877, 182);
+            this.PbAddNewUser.Name = "PbAddNewUser";
+            this.PbAddNewUser.Size = new System.Drawing.Size(123, 72);
+            this.PbAddNewUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbAddNewUser.TabIndex = 21;
+            this.PbAddNewUser.TabStop = false;
+            this.PbAddNewUser.Click += new System.EventHandler(this.PbAddNewUser_Click);
+            // 
+            // pbPeople
+            // 
+            this.pbPeople.Image = global::DVLD.Properties.Resources.user;
+            this.pbPeople.Location = new System.Drawing.Point(371, 12);
+            this.pbPeople.Name = "pbPeople";
+            this.pbPeople.Size = new System.Drawing.Size(258, 159);
+            this.pbPeople.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPeople.TabIndex = 13;
+            this.pbPeople.TabStop = false;
+            // 
             // frmUsersManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1054, 646);
+            this.ClientSize = new System.Drawing.Size(1054, 655);
+            this.Controls.Add(this.RbActiveAndNotActive);
             this.Controls.Add(this.rbNotActive);
             this.Controls.Add(this.rbIsActive);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.PbAddNewUser);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblNumberOfUsers);
@@ -263,17 +333,19 @@
             this.Controls.Add(this.lblPeopleManagement);
             this.Controls.Add(this.pbPeople);
             this.Controls.Add(this.DgvAllUsers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmUsersManagement";
-            this.Text = "frmUsersManagement";
+            this.Text = "Users Management";
             this.Load += new System.EventHandler(this.frmUsersManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvAllUsers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).EndInit();
+            this.CmUsers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dVLDDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peopleBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbAddNewUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,7 +363,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PbAddNewUser;
         private System.Windows.Forms.BindingSource dVLDDataSetBindingSource;
         private DVLDDataSet dVLDDataSet;
         private System.Windows.Forms.BindingSource peopleBindingSource;
@@ -301,5 +373,11 @@
         private DVLDDataSetTableAdapters.UsersTableAdapter usersTableAdapter;
         private System.Windows.Forms.RadioButton rbIsActive;
         private System.Windows.Forms.RadioButton rbNotActive;
+        private System.Windows.Forms.RadioButton RbActiveAndNotActive;
+        private System.Windows.Forms.ContextMenuStrip CmUsers;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
     }
 }

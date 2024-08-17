@@ -171,7 +171,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 32);
             this.btnClose.TabIndex = 32;
-            this.btnClose.Text = "cancel";
+            this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
             // 
@@ -202,6 +202,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(130, 26);
             this.txtPhone.TabIndex = 10;
+            this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txtPhone_Validating_1);
             // 
             // label7
             // 
@@ -272,6 +273,7 @@
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(130, 26);
             this.TxtEmail.TabIndex = 7;
+            this.TxtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.TxtEmail_Validating_1);
             // 
             // txtNationalNo
             // 
@@ -279,6 +281,7 @@
             this.txtNationalNo.Name = "txtNationalNo";
             this.txtNationalNo.Size = new System.Drawing.Size(128, 26);
             this.txtNationalNo.TabIndex = 4;
+            this.txtNationalNo.Validating += new System.ComponentModel.CancelEventHandler(this.txtNationalNo_Validating);
             // 
             // txtLastName
             // 
@@ -286,6 +289,7 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(128, 26);
             this.txtLastName.TabIndex = 3;
+            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.txtLastName_Validating);
             // 
             // txtThirdName
             // 
@@ -293,6 +297,7 @@
             this.txtThirdName.Name = "txtThirdName";
             this.txtThirdName.Size = new System.Drawing.Size(128, 26);
             this.txtThirdName.TabIndex = 2;
+            this.txtThirdName.Validating += new System.ComponentModel.CancelEventHandler(this.txtThirdName_Validating_1);
             // 
             // txtSecondName
             // 
@@ -300,6 +305,7 @@
             this.txtSecondName.Name = "txtSecondName";
             this.txtSecondName.Size = new System.Drawing.Size(132, 26);
             this.txtSecondName.TabIndex = 1;
+            this.txtSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.txtSecondName_Validating_1);
             // 
             // txtFirstName
             // 
@@ -307,6 +313,7 @@
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(130, 26);
             this.txtFirstName.TabIndex = 0;
+            this.txtFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.txtFirstName_Validating_1);
             // 
             // label10
             // 
@@ -432,7 +439,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmAddUpdatePerson";
-            this.Text = "FrmAddUpdatePerson";
+            this.Text = "add and update person";
             this.Load += new System.EventHandler(this.FrmAddUpdatePerson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EpAddUpdate)).EndInit();
             this.GbAddUpdatePerson.ResumeLayout(false);

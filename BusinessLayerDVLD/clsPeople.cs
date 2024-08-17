@@ -105,13 +105,14 @@ namespace BusinessLayerDVLD
             return (ID != -1);
 
         }
-        public static clsPeople FindPerson(int ID)
+        public static clsPeople FindPersonById(int ID)
         {
 
             string FirstName = "", SecondName= "",ThirdName= "",LastName = "", Email = "", Phone = "", Address = "", ImagePath = "",NationalNo = "";
             DateTime DateOfBirth = DateTime.Now;
             int nationalityCountryId = -1,gender = -1;
 
+            
             if (clsDataPeople.GetPersonByID(ref ID,ref NationalNo,ref FirstName,ref SecondName,ref ThirdName,ref LastName,ref DateOfBirth,ref gender,ref Address,ref Phone,
                 ref Email,ref nationalityCountryId,ref ImagePath))
 
@@ -121,6 +122,26 @@ namespace BusinessLayerDVLD
                 return null;
 
         }
+
+        public static clsPeople FindPersonByNationalNumber(string NationalNo)
+        {
+
+            string FirstName = "", SecondName = "", ThirdName = "", LastName = "", Email = "", Phone = "", Address = "", ImagePath = "";
+            DateTime DateOfBirth = DateTime.Now;
+            int nationalityCountryId = -1, gender = -1 ,ID = -1;
+
+            if (clsDataPeople.GetPersonByNationalNo(ref ID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref gender, ref Address, ref Phone,
+                ref Email, ref nationalityCountryId, ref ImagePath))
+
+                return new clsPeople(ID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, gender, Email, Phone, Address, nationalityCountryId,
+                    ImagePath);
+            else
+                return null;
+
+        }
+
+
+
         private bool _UpdatePerson()
         {
             //call DataAccess Layer 
@@ -159,6 +180,15 @@ namespace BusinessLayerDVLD
                 return false;
 
         }
+        
+        public static bool IsPersonIDFound(string PersonID)
+        {
+            if (clsDataPeople.IsPersonIDFound(PersonID))
+                return true;
+            else
+                return false;
+
+        }
 
         public static bool DeletePerson(int ID)
         {
@@ -172,6 +202,8 @@ namespace BusinessLayerDVLD
             }
             
         }
+
+        
 
 
     }

@@ -43,11 +43,12 @@ namespace DVLD
             FrmAddUpdatePerson frm = new FrmAddUpdatePerson();  
 
             frm.ShowDialog();
+            _refreshgContactList();
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAddUpdatePerson frm = new FrmAddUpdatePerson((int)DGVAllPeople.CurrentRow.Cells[0].Value,true);
+            FrmAddUpdatePerson frm = new FrmAddUpdatePerson((int)DGVAllPeople.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
             _refreshgContactList();
 
@@ -65,10 +66,7 @@ namespace DVLD
 
         }
 
-        private void DGVAllPeople_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {

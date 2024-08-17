@@ -372,14 +372,14 @@ namespace DataLayerDVLD
                 "  ,[Phone]   \r\n                  ,[Email]\r\n    " +
                 "              FROM people  " +
                 " join Countries   on People.NationalityCountryID = Countries.CountryID\r\n\t\t\t\t " +
-                " where PersonID like @TxtFilter";
+                " where PersonID = @TxtFilter";
 
 
 
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@TxtFilter", "%" + TxtFilter + "%");
+            command.Parameters.AddWithValue("@TxtFilter",  TxtFilter );
 
 
             try

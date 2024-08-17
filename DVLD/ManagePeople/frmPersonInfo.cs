@@ -21,7 +21,7 @@ namespace DVLD.FrmPeopleManagement
       
                 if (PersonId != -1)
                 {
-                    UcPersonDetails.Result = PersonId;
+                    UcPersonDetails.PersonID = PersonId;
                 }
             
 

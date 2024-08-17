@@ -5,6 +5,7 @@
         /// <summary> 
         /// Required designer variable.
         /// </summary>
+        
         private System.ComponentModel.IContainer components = null;
 
         /// <summary> 
@@ -39,7 +40,6 @@
             this.lblFullName = new System.Windows.Forms.Label();
             this.lblPersonId = new System.Windows.Forms.Label();
             this.LlEdit = new System.Windows.Forms.LinkLabel();
-            this.PbPerson = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,6 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.PbPerson = new System.Windows.Forms.PictureBox();
             this.GbPersonInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbPerson)).BeginInit();
             this.SuspendLayout();
@@ -163,7 +164,6 @@
             this.lblPersonId.Size = new System.Drawing.Size(35, 20);
             this.lblPersonId.TabIndex = 11;
             this.lblPersonId.Text = "N/A";
-            this.lblPersonId.Click += new System.EventHandler(this.lblPersonId_Click);
             // 
             // LlEdit
             // 
@@ -175,17 +175,6 @@
             this.LlEdit.TabStop = true;
             this.LlEdit.Text = "Edit Person Info";
             this.LlEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlEdit_LinkClicked);
-            // 
-            // PbPerson
-            // 
-            this.PbPerson.Image = global::DVLD.Properties.Resources._360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv;
-            this.PbPerson.InitialImage = global::DVLD.Properties.Resources._360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv;
-            this.PbPerson.Location = new System.Drawing.Point(712, 25);
-            this.PbPerson.Name = "PbPerson";
-            this.PbPerson.Size = new System.Drawing.Size(176, 163);
-            this.PbPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PbPerson.TabIndex = 9;
-            this.PbPerson.TabStop = false;
             // 
             // label9
             // 
@@ -268,6 +257,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Person ID :";
             // 
+            // PbPerson
+            // 
+            this.PbPerson.Image = global::DVLD.Properties.Resources._360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv;
+            this.PbPerson.InitialImage = global::DVLD.Properties.Resources._360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv;
+            this.PbPerson.Location = new System.Drawing.Point(712, 25);
+            this.PbPerson.Name = "PbPerson";
+            this.PbPerson.Size = new System.Drawing.Size(176, 163);
+            this.PbPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PbPerson.TabIndex = 9;
+            this.PbPerson.TabStop = false;
+            // 
             // UcPersonDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -276,7 +276,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UcPersonDetails";
-            this.Size = new System.Drawing.Size(903, 391);
+            this.Size = new System.Drawing.Size(903, 407);
             this.Load += new System.EventHandler(this.UcPersonDetails_Load);
             this.GbPersonInformation.ResumeLayout(false);
             this.GbPersonInformation.PerformLayout();

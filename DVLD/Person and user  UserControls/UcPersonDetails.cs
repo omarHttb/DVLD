@@ -14,34 +14,35 @@ namespace DVLD.UserControls
     public partial class UcPersonDetails : UserControl
     {
 
-        clsPeople _People;
+        clsPeople  _People;
         clsCountries _Countries;
         public UcPersonDetails()
         {
             InitializeComponent();
         }
 
-        public static int Result = -1;
+        public static int PersonID = -1;
+        public static string NationalNoResult = "";
 
         private void UcPersonDetails_Load(object sender, EventArgs e)
         {
 
-                    lblPersonId.Text = Result.ToString();
                     _LoadPersonInfo();
     
         }
             
-        private void _LoadPersonInfo()
+        private  void _LoadPersonInfo()
         {
 
 
-                if (Result != -1)
+                if (PersonID != -1)
                 {
-                    _People = clsPeople.FindPerson(Result);
+                    _People = clsPeople.FindPersonById(PersonID);
+                    lblPersonId.Text = PersonID.ToString();
 
 
 
-                    lblFullName.Text = _People.FirstName + " " + _People.SecondName
+                lblFullName.Text = _People.FirstName + " " + _People.SecondName
                         + " " + _People.ThirdName + " " + _People.LastName;
                     lblNationalNo.Text = _People.NationalNo;
                     lblPhone.Text = _People.Phone;
@@ -67,24 +68,21 @@ namespace DVLD.UserControls
 
                     }
 
-                    _Countries = clsCountries.FindCountryPerson(Result);
+                    _Countries = clsCountries.FindCountryPerson(PersonID);
 
                     LblCountry.Text = _Countries.CountryName;
                 }
 
         }
 
+
+
         private void LlEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmAddUpdatePerson form = new FrmAddUpdatePerson(Result,true); 
+            FrmAddUpdatePerson form = new FrmAddUpdatePerson(PersonID); 
 
             form.ShowDialog();
-
-        }
-
-        private void lblPersonId_Click(object sender, EventArgs e)
-        {
-
+            _LoadPersonInfo();
         }
 
         private void GbPersonInformation_Enter(object sender, EventArgs e)

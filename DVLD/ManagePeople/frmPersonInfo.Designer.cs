@@ -65,7 +65,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPersonInfo";
-            this.Text = "frmPersonInfo";
+            this.Text = "Person Details";
             this.Load += new System.EventHandler(this.frmPersonInfo_Load);
             this.ResumeLayout(false);
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD.Login;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,9 @@ namespace DVLD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            frmLogin frmLogin = new frmLogin();
+            MainForm mainForm = new MainForm();
+            Application.Run(frmLogin);
         }
     }
 }
