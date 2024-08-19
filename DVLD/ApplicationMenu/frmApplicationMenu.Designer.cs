@@ -260,6 +260,7 @@
             this.btnLocalLicense.Size = new System.Drawing.Size(64, 47);
             this.btnLocalLicense.TabIndex = 14;
             this.btnLocalLicense.UseVisualStyleBackColor = true;
+            this.btnLocalLicense.Click += new System.EventHandler(this.btnLocalLicense_Click);
             // 
             // btnNewGlobalLicenses
             // 

@@ -1,5 +1,6 @@
 ﻿using DVLD.ManageApplicationTypes;
 using DVLD.ManageTestTypes;
+using DVLD.NewDrivingLicense;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,6 +54,11 @@ namespace DVLD
             pnlDrivingLicenseServiceMenu.Visible = true;
         }
 
- 
+        private void btnLocalLicense_Click(object sender, EventArgs e)
+        {
+            frmNewLocalDrivingLicense frm = new frmNewLocalDrivingLicense();    
+
+            frm.ShowDialog();
+        }
     }
 }

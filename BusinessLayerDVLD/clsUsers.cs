@@ -43,7 +43,7 @@ namespace BusinessLayerDVLD
            return clsDataUser.GetAllUsers();
         }
 
-        public bool _AddNewUser()
+        private bool _AddNewUser()
         {
              UserID =  clsDataUser.AddNewPerson(PersonID, UserName, Password, IsActive);
             

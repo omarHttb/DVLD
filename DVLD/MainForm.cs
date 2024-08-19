@@ -12,6 +12,8 @@ using DVLD.Users;
 using DVLD.Login;
 using BusinessLayerDVLD;
 using DVLD.ManageApplicationTypes;
+using DVLD.ManageTestTypes;
+using DVLD.NewDrivingLicense;
 
 namespace DVLD
 {
@@ -34,6 +36,7 @@ namespace DVLD
 
             GlobalProperties.LoggedInUserID = _clsUsers.UserID;
             GlobalProperties.LoggedInPersonID = _clsUsers.PersonID;
+            GlobalProperties.LoggedInUserName = lblLoggedInUser.Text;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -94,13 +97,7 @@ namespace DVLD
 
 
 
-        private void BtnApplication_Click(object sender, EventArgs e)
-        {
-  
-            frmApplicationMenu frm = new frmApplicationMenu();
-            frm.ShowDialog();
-        
-        }
+
 
         private void btnManageApplicationTypes_Click(object sender, EventArgs e)
         {
@@ -125,6 +122,41 @@ namespace DVLD
 
         }
 
+        private void btnAddPerson_Click(object sender, EventArgs e)
+        {
+            FrmAddUpdatePerson frm = new FrmAddUpdatePerson();
+            frm.ShowDialog();
+        }
 
+        private void BtnAddUser_Click(object sender, EventArgs e)
+        {
+            frmAddUser frm = new frmAddUser();
+
+            frm.ShowDialog();
+        }
+
+        private void btnManageApplicationTypes_Click_1(object sender, EventArgs e)
+        {
+            frmManageApplicationTypes frm =new frmManageApplicationTypes();
+            frm.ShowDialog();
+        }
+
+        private void btnManageTestTypes_Click(object sender, EventArgs e)
+        {
+            frmManageTestTypes frm = new frmManageTestTypes();
+
+            frm.ShowDialog();
+        }
+
+        private void btnRetakeTest_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("not implemented");
+        }
+
+        private void btnLocalLicense_Click(object sender, EventArgs e)
+        {
+            frmNewLocalDrivingLicense frm = new frmNewLocalDrivingLicense();
+            frm.ShowDialog();
+        }
     }
 }

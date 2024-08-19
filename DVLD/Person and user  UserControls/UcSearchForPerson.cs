@@ -18,8 +18,9 @@ namespace DVLD.UserControls
         clsCountries _Countries;
         public int PersonID = -1;
         public  bool EditMode = false;
-
-        public UcSearchForPerson()
+        public int Age { get; set; }
+        
+            public UcSearchForPerson()
         {
             InitializeComponent();
         }
@@ -33,7 +34,7 @@ namespace DVLD.UserControls
             txtSearch.Text = PersonID.ToString();
             
         }
-
+        
 
         public void UpdateMode()
         {
@@ -42,7 +43,7 @@ namespace DVLD.UserControls
             btnAddPerson.Enabled = false;
             btnSearch.Enabled = false;
         }
-
+        
         private void _LoadByFilter()
         {
             switch (EditMode)
@@ -201,6 +202,8 @@ namespace DVLD.UserControls
                 }
 
                 DtpDateOfBirth.Value = _People.DateOfBirth;
+
+                Age = Convert.ToInt32(DateTime.Now.Year) -  Convert.ToInt32(DtpDateOfBirth.Value.Year) ;
 
                 if (_People.ImagePath != "")
                 {

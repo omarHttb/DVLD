@@ -185,6 +185,7 @@
             this.cbCountry.Size = new System.Drawing.Size(130, 28);
             this.cbCountry.Sorted = true;
             this.cbCountry.TabIndex = 11;
+            this.cbCountry.SelectedIndexChanged += new System.EventHandler(this.cbCountry_SelectedIndexChanged);
             // 
             // label11
             // 

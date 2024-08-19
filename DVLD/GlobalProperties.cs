@@ -10,5 +10,6 @@ namespace DVLD
     {
         public static int LoggedInUserID { get; set; }
         public static int LoggedInPersonID { get; set; }
+        public static string LoggedInUserName { get; set;}
     }
 }

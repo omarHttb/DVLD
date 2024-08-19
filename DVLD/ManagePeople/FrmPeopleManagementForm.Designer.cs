@@ -201,7 +201,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::DVLD.Properties.Resources.person_add_icon_2048x2048_8zmguv5l;
+            this.pictureBox1.Image = global::DVLD.Properties.Resources.add_user__1_;
             this.pictureBox1.Location = new System.Drawing.Point(1027, 127);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(123, 72);

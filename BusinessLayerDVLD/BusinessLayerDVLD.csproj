@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsApplications.cs" />
     <Compile Include="clsCountries.cs" />
     <Compile Include="clsFilterByPeople.cs" />
     <Compile Include="clsFilterByUser.cs" />
+    <Compile Include="clsLocalDrivingLicenseApplication.cs" />
     <Compile Include="clsManageApplicationTypes.cs" />
     <Compile Include="clsManageTestTypes.cs" />
     <Compile Include="clsPeople.cs" />
