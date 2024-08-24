@@ -69,7 +69,7 @@
             // txtFilter
             // 
             this.txtFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFilter.Location = new System.Drawing.Point(509, 226);
+            this.txtFilter.Location = new System.Drawing.Point(305, 226);
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(201, 26);
             this.txtFilter.TabIndex = 17;
@@ -81,7 +81,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(270, 203);
+            this.label2.Location = new System.Drawing.Point(74, 203);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 20);
             this.label2.TabIndex = 16;
@@ -99,7 +99,7 @@
             "PersonID",
             "Full Name",
             "is Active\t"});
-            this.CbFilter.Location = new System.Drawing.Point(274, 226);
+            this.CbFilter.Location = new System.Drawing.Point(70, 226);
             this.CbFilter.Name = "CbFilter";
             this.CbFilter.Size = new System.Drawing.Size(217, 28);
             this.CbFilter.TabIndex = 15;
@@ -109,11 +109,11 @@
             // 
             this.lblPeopleManagement.AutoSize = true;
             this.lblPeopleManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPeopleManagement.Location = new System.Drawing.Point(376, 182);
+            this.lblPeopleManagement.Location = new System.Drawing.Point(403, 182);
             this.lblPeopleManagement.Name = "lblPeopleManagement";
-            this.lblPeopleManagement.Size = new System.Drawing.Size(262, 31);
+            this.lblPeopleManagement.Size = new System.Drawing.Size(250, 31);
             this.lblPeopleManagement.TabIndex = 14;
-            this.lblPeopleManagement.Text = "People Management";
+            this.lblPeopleManagement.Text = "Users Management";
             // 
             // DgvAllUsers
             // 
@@ -254,7 +254,7 @@
             // 
             this.rbIsActive.AutoSize = true;
             this.rbIsActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbIsActive.Location = new System.Drawing.Point(509, 226);
+            this.rbIsActive.Location = new System.Drawing.Point(305, 226);
             this.rbIsActive.Name = "rbIsActive";
             this.rbIsActive.Size = new System.Drawing.Size(65, 22);
             this.rbIsActive.TabIndex = 23;
@@ -268,7 +268,7 @@
             // 
             this.rbNotActive.AutoSize = true;
             this.rbNotActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNotActive.Location = new System.Drawing.Point(602, 226);
+            this.rbNotActive.Location = new System.Drawing.Point(398, 226);
             this.rbNotActive.Name = "rbNotActive";
             this.rbNotActive.Size = new System.Drawing.Size(93, 22);
             this.rbNotActive.TabIndex = 24;
@@ -282,7 +282,7 @@
             // 
             this.RbActiveAndNotActive.AutoSize = true;
             this.RbActiveAndNotActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RbActiveAndNotActive.Location = new System.Drawing.Point(716, 226);
+            this.RbActiveAndNotActive.Location = new System.Drawing.Point(512, 226);
             this.RbActiveAndNotActive.Name = "RbActiveAndNotActive";
             this.RbActiveAndNotActive.Size = new System.Drawing.Size(45, 22);
             this.RbActiveAndNotActive.TabIndex = 25;
@@ -307,7 +307,7 @@
             // pbPeople
             // 
             this.pbPeople.Image = global::DVLD.Properties.Resources.user;
-            this.pbPeople.Location = new System.Drawing.Point(371, 12);
+            this.pbPeople.Location = new System.Drawing.Point(398, 12);
             this.pbPeople.Name = "pbPeople";
             this.pbPeople.Size = new System.Drawing.Size(258, 159);
             this.pbPeople.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

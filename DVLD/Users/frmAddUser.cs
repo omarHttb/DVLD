@@ -18,6 +18,7 @@ namespace DVLD.Users
         clsUsers _User = new clsUsers();
 
         //for checking if same username as original when updating
+        //this is for that there cant be 2 users with the same UserName system
         string CheckIfSameUserNameAsOriginal = "";
 
         public frmAddUser()
@@ -26,12 +27,11 @@ namespace DVLD.Users
         }
 
 
-        public frmAddUser(int PersonID,int UserID ,string UserName,bool EditMode,string IsActiveOrNot)
+        public frmAddUser(int PersonID,int UserID ,string UserName,string IsActiveOrNot)
         {
             InitializeComponent();
             clsUsers.Mode = clsUsers._enMode.UpdateMode;
             ucSearchForPerson1.PersonID = PersonID;
-            ucSearchForPerson1.EditMode = EditMode;
             _User.UserID = UserID;
             _EditMode();
             txtUserName.Text = UserName;
@@ -50,10 +50,11 @@ namespace DVLD.Users
         {
             BtnSave.Enabled = true;
             TcNewUser.SelectTab(1);
+            ucSearchForPerson1.UpdateModeByPersonId();
+
             ucSearchForPerson1.LoadPersonInfo();
             lblMode.Text = "Update User";
             LblUserID.Text = _User.UserID.ToString();
-            ucSearchForPerson1.UpdateMode();
             TxtPassword.Text = clsUsers.GetPassword(_User.UserID);
             TxtConfirmPassword.Text = TxtPassword.Text;
         }
@@ -209,7 +210,7 @@ namespace DVLD.Users
 
                     LblUserID.Text = _User.UserID.ToString();
                     lblMode.Text = "Update User";
-                    ucSearchForPerson1.UpdateMode();
+                    ucSearchForPerson1.UpdateModeByPersonId();
 
                     
 

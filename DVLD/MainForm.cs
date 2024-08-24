@@ -14,6 +14,7 @@ using BusinessLayerDVLD;
 using DVLD.ManageApplicationTypes;
 using DVLD.ManageTestTypes;
 using DVLD.NewDrivingLicense;
+using DVLD.LocalApplicationFiles.ManageLocalApplications;
 
 namespace DVLD
 {
@@ -157,6 +158,17 @@ namespace DVLD
         {
             frmNewLocalDrivingLicense frm = new frmNewLocalDrivingLicense();
             frm.ShowDialog();
+        }
+
+        private void BtnManageLDLApplication_Click(object sender, EventArgs e)
+        {
+            FrmManageLocalDrivingLicenseApplication frm = new FrmManageLocalDrivingLicenseApplication();    
+            frm.ShowDialog();
+        }
+
+        private void btnManageGDLApplication_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("no");
         }
     }
 }

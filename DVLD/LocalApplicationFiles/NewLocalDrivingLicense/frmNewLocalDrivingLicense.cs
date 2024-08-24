@@ -25,6 +25,31 @@ namespace DVLD.NewDrivingLicense
             lblCreatedBy.Text = GlobalProperties.LoggedInUserName;
         }
 
+        public frmNewLocalDrivingLicense(string NationalNo,int LocalDLApplicationId)
+        {
+           InitializeComponent();
+           _LoadLicenseClasses();
+           lblMode.Text = "Update Local Driving License Application";
+
+            lblDate.Text = DateTime.Now.ToShortDateString();
+            lblFees.Text = "15";
+            lblCreatedBy.Text = GlobalProperties.LoggedInUserName;
+
+            ucSearchForPerson1.NationalNo = NationalNo;
+            ucSearchForPerson1.UpdateModeByNationalNo();
+            ucSearchForPerson1.LoadPersonInfo();
+
+           lblApplicationID.Text = LocalDLApplicationId.ToString();
+           cbLicensesClasses.SelectedIndex = clsLocalDrivingLicenseApplication.GetLicenseClassFromLLdAppId(LocalDLApplicationId) - 1 ;
+
+           BtnSave.Enabled = true;
+           btnNextPage.Enabled = false;
+           TcLocalDrivingLicenseApplication.SelectTab(1);
+
+           _clsLocalDrivingLicenseApplication.IsUpdateMode = true;
+        }
+
+        // close form
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -59,7 +84,7 @@ namespace DVLD.NewDrivingLicense
 
         private bool _CheckAgeUnder18()
         {
-            if(ucSearchForPerson1.Age <21)
+            if(ucSearchForPerson1.Age < 21)
                 return true;
             else
                 return false;
@@ -81,11 +106,19 @@ namespace DVLD.NewDrivingLicense
             return false;
         }
 
-        private bool _PersonHasMoreThanOneApplicationOfSameLicenseClass()
+        // checks if person has more than one application with the same licenes class
+        // or if user application with same license class is cancelled 
+        private bool _IsPersonHasMoreThanOneApplicationOfSameLicenseClassOrApplicationCancelled()
         {
+            // if user has canclled application then it will return false
             if(clsLocalDrivingLicenseApplication.DoesPersonHaveActiveLocalApplicationWithSameLicenseClass(
-                ucSearchForPerson1.PersonID, cbLicensesClasses.SelectedIndex + 1))
+                ucSearchForPerson1.PersonID, cbLicensesClasses.SelectedIndex + 1)
+                && 
+                clsLocalDrivingLicenseApplication.IsPersonApplicationCanceled(ucSearchForPerson1.PersonID,
+                    cbLicensesClasses.SelectedIndex + 1) != 2)
             {
+
+
                 MessageBox.Show("Person already has an application of the same kind", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return true;
@@ -107,14 +140,17 @@ namespace DVLD.NewDrivingLicense
             {
                 _clsLocalDrivingLicenseApplication.LocalLicensesID = Convert.ToInt32( lblApplicationID.Text);
             }
-                    _clsLocalDrivingLicenseApplication.LicenseClassID = cbLicensesClasses.SelectedIndex + 1;
-                if (_clsLocalDrivingLicenseApplication.Save())
-                {
-                    lblApplicationID.Text = _clsLocalDrivingLicenseApplication.LocalLicensesID.ToString();
-                    lblMode.Text = "Update Local Driving License Application";
-                    _clsLocalDrivingLicenseApplication.IsUpdateMode = true;
-                    return true;
-                }
+
+             _clsLocalDrivingLicenseApplication.LicenseClassID = cbLicensesClasses.SelectedIndex + 1;
+
+
+            if (_clsLocalDrivingLicenseApplication.Save())
+            {
+              lblApplicationID.Text = _clsLocalDrivingLicenseApplication.LocalLicensesID.ToString();
+              lblMode.Text = "Update Local Driving License Application";
+              _clsLocalDrivingLicenseApplication.IsUpdateMode = true;
+               return true;
+             }
             
                  return false;
         }
@@ -129,17 +165,17 @@ namespace DVLD.NewDrivingLicense
                     return;
             }
 
-            if(_PersonHasMoreThanOneApplicationOfSameLicenseClass())
+            if(_IsPersonHasMoreThanOneApplicationOfSameLicenseClassOrApplicationCancelled())
             {
                return;
             }
 
              if(lblMode.Text != "Update Local Driving License Application")
                 {
+                       _clsApplications.LastStatusDate = DateTime.Now;
                        _clsApplications.ApplicationDate = DateTime.Now;
                        _clsApplications.ApplicationTypeID = 1;
                        _clsApplications.ApplicationStatus = 1;
-                       _clsApplications.LastStatusDate = DateTime.Now;
                        _clsApplications.PaidFees = 15;
                        _clsApplications.CreatedById = GlobalProperties.LoggedInUserID;
                        _clsApplications.ApplicantPersonID = ucSearchForPerson1.PersonID;

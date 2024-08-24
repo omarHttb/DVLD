@@ -223,6 +223,16 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap house {
+            get {
+                object obj = ResourceManager.GetObject("house", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap human_2640788 {
             get {
                 object obj = ResourceManager.GetObject("human_2640788", resourceCulture);
@@ -404,6 +414,16 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap search {
+            get {
+                object obj = ResourceManager.GetObject("search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Search_People {
             get {
                 object obj = ResourceManager.GetObject("Search People", resourceCulture);
@@ -454,6 +474,16 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap test1 {
+            get {
+                object obj = ResourceManager.GetObject("test1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tractor {
             get {
                 object obj = ResourceManager.GetObject("tractor", resourceCulture);
@@ -487,6 +517,16 @@ namespace DVLD.Properties {
         internal static System.Drawing.Bitmap user_logout {
             get {
                 object obj = ResourceManager.GetObject("user-logout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap valet {
+            get {
+                object obj = ResourceManager.GetObject("valet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

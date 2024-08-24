@@ -83,6 +83,7 @@ namespace DVLD.Users
                 txtFilter.Visible = false;
                 rbNotActive.Visible = false;
                 rbIsActive.Visible = false;
+                RbActiveAndNotActive.Visible=false;
                 _LoadAllUsers();
             }
             else if (CbFilter.SelectedIndex== 5)
@@ -170,7 +171,7 @@ namespace DVLD.Users
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddUser frm = new frmAddUser((int)DgvAllUsers.CurrentRow.Cells[1].Value, (int)DgvAllUsers.CurrentRow.Cells[0].Value, (string)DgvAllUsers.CurrentRow.Cells[3].Value,true, (string)DgvAllUsers.CurrentRow.Cells[4].Value);
+            frmAddUser frm = new frmAddUser((int)DgvAllUsers.CurrentRow.Cells[1].Value, (int)DgvAllUsers.CurrentRow.Cells[0].Value, (string)DgvAllUsers.CurrentRow.Cells[3].Value, (string)DgvAllUsers.CurrentRow.Cells[4].Value);
             frm.ShowDialog();
             _LoadAllUsers();
         }

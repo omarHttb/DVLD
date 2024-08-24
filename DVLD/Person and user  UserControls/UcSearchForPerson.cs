@@ -17,10 +17,13 @@ namespace DVLD.UserControls
         clsPeople _People;
         clsCountries _Countries;
         public int PersonID = -1;
-        public  bool EditMode = false;
+        public string NationalNo { get; set; }
+        private bool EditMode = false;
         public int Age { get; set; }
+        enum enLoadBy {NationalNo,PersonId }
+        enLoadBy LoadBy;
         
-            public UcSearchForPerson()
+        public UcSearchForPerson()
         {
             InitializeComponent();
         }
@@ -36,23 +39,41 @@ namespace DVLD.UserControls
         }
         
 
-        public void UpdateMode()
+        // LOADS PERSON BY PERSON ID
+        public void UpdateModeByPersonId()
         {
             CbSearchFilter.Enabled = false;
             txtSearch.Enabled = false;
             btnAddPerson.Enabled = false;
             btnSearch.Enabled = false;
+            EditMode = true;
+            LoadBy = enLoadBy.PersonId;
         }
-        
+
+        // load by national number
+        public void UpdateModeByNationalNo() 
+        {
+            CbSearchFilter.Enabled = false;
+            txtSearch.Enabled = false;
+            btnAddPerson.Enabled = false;
+            btnSearch.Enabled = false;
+            EditMode = true;
+            LoadBy = enLoadBy.NationalNo;
+
+        }
+
+
+
         private void _LoadByFilter()
         {
             switch (EditMode)
             {
+                // load by recieved text from search text box
                 case false:
                     if (CbSearchFilter.SelectedIndex == 2)
                     {
-                        lblPersonId.Text = txtSearch.Text;
                         _People = clsPeople.FindPersonById(Convert.ToInt32(txtSearch.Text));
+                        lblPersonId.Text = txtSearch.Text; // getting id from text box that is if the person is found
                         _Countries = clsCountries.FindCountryPerson(Convert.ToInt32(txtSearch.Text));
 
                     }
@@ -63,10 +84,24 @@ namespace DVLD.UserControls
                         _Countries = clsCountries.FindCountryPerson(_People.ID);
 
                     }
-                    break;
+                break;
+
+                    // load by recieved id or national number
                     case true:
-                    _People = clsPeople.FindPersonById(PersonID);
-                    _Countries = clsCountries.FindCountryPerson(PersonID);
+                    if (LoadBy == enLoadBy.PersonId)
+                    {
+                        _People = clsPeople.FindPersonById(PersonID);
+                        lblPersonId.Text = txtSearch.Text;
+                        _Countries = clsCountries.FindCountryPerson(PersonID);
+                    }
+                    else
+                    {
+                        _People = clsPeople.FindPersonByNationalNumber(NationalNo);
+                        lblPersonId.Text = _People.ID.ToString();
+
+                        _Countries = clsCountries.FindCountryPerson(_People.ID);
+                    }
+
                     break;
             }
             
@@ -77,8 +112,17 @@ namespace DVLD.UserControls
         private void UcSearchForPerson_Load(object sender, EventArgs e)
         {
             CbSearchFilter.SelectedIndex = 0;
-            LlEdit.Visible = false;
-            
+            if (lblPersonId.Text == "N/A")
+            {
+                LlEdit.Visible = false;
+
+            }
+            else
+            {
+                LlEdit.Visible = true;
+
+            }
+
         }
 
         // add button

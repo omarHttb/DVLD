@@ -46,18 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationMenu\frmApplicationMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ApplicationMenu\frmApplicationMenu.Designer.cs">
-      <DependentUpon>frmApplicationMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="DVLDDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DVLDDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="GlobalProperties.cs" />
+    <Compile Include="LocalApplicationFiles\ManageLocalApplications\FrmManageLocalDrivingLicenseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LocalApplicationFiles\ManageLocalApplications\FrmManageLocalDrivingLicenseApplication.Designer.cs">
+      <DependentUpon>FrmManageLocalDrivingLicenseApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,10 +112,10 @@
     <Compile Include="ManageTestTypes\frmUpdateTestType.Designer.cs">
       <DependentUpon>frmUpdateTestType.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewLocalDrivingLicense\frmNewLocalDrivingLicense.cs">
+    <Compile Include="LocalApplicationFiles\NewLocalDrivingLicense\frmNewLocalDrivingLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewLocalDrivingLicense\frmNewLocalDrivingLicense.Designer.cs">
+    <Compile Include="LocalApplicationFiles\NewLocalDrivingLicense\frmNewLocalDrivingLicense.Designer.cs">
       <DependentUpon>frmNewLocalDrivingLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -163,8 +163,8 @@
     <Compile Include="Users\frmUserDetails.Designer.cs">
       <DependentUpon>frmUserDetails.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ApplicationMenu\frmApplicationMenu.resx">
-      <DependentUpon>frmApplicationMenu.cs</DependentUpon>
+    <EmbeddedResource Include="LocalApplicationFiles\ManageLocalApplications\FrmManageLocalDrivingLicenseApplication.resx">
+      <DependentUpon>FrmManageLocalDrivingLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -193,7 +193,7 @@
     <EmbeddedResource Include="ManageTestTypes\frmUpdateTestType.resx">
       <DependentUpon>frmUpdateTestType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewLocalDrivingLicense\frmNewLocalDrivingLicense.resx">
+    <EmbeddedResource Include="LocalApplicationFiles\NewLocalDrivingLicense\frmNewLocalDrivingLicense.resx">
       <DependentUpon>frmNewLocalDrivingLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -388,6 +388,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add-user %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\valet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\house.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
