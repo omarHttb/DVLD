@@ -109,6 +109,65 @@ SELECT SCOPE_IDENTITY();";
 
             return -1;
         }
-       
+        
+
+        public static bool GetApplicationBasicInfo(int LdlAppId, ref int AppId,ref int ApplicationTypeId,ref int ApplicantPersonId,ref DateTime ApplicationDate,
+         ref  byte ApplicationStatus,ref DateTime LastStatusDate,ref decimal PaidFees,ref int CreatedByUserId)
+        {
+
+            bool isFound = false;
+            SqlConnection conn = new SqlConnection(clsDataLayerSettings.ConnectionString);
+
+            string query = @"SELECT  Applications.ApplicationID , Applications.ApplicantPersonID
+				, Applications.ApplicationTypeID
+				,Applications.ApplicationDate, Applications.ApplicationStatus
+				, Applications.LastStatusDate, Applications.PaidFees
+                ,Applications.CreatedByUserID
+            FROM           
+                Applications INNER JOIN                        
+                LocalDrivingLicenseApplications ON Applications.ApplicationID = 
+                LocalDrivingLicenseApplications.ApplicationID where LocalDrivingLicenseApplicationID = @LdlAppId";
+
+            SqlCommand command = new SqlCommand(query, conn);
+
+            command.Parameters.AddWithValue("@LdlAppId", LdlAppId);
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    isFound = true;
+                    AppId = (int)reader["ApplicationID"];
+                    ApplicationTypeId = (int)reader["ApplicationTypeID"];
+                    ApplicationDate = (DateTime)reader["ApplicationDate"];
+                    ApplicationStatus = (byte)reader["ApplicationStatus"];
+                    LastStatusDate = (DateTime)reader["LastStatusDate"];
+                    PaidFees = (decimal)reader["PaidFees"];
+                    CreatedByUserId = (int)reader["CreatedByUserID"];
+                    ApplicantPersonId = (int)reader["ApplicantPersonID"];
+                }
+                else
+                {
+                    isFound = false;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isFound;
+        }
+
+
+
+
     }
 }

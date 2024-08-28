@@ -44,6 +44,7 @@
             this.scheduleStreetTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuItemIssueLicenseFirstTime = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuItemShowLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuItemShowLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +61,6 @@
             this.BtnAddLocalApplication = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             MenuItemCancelApp = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DvgLocalDrvingLicenseApplication)).BeginInit();
             this.CmLDLAppMenu.SuspendLayout();
@@ -121,7 +121,8 @@
             this.toolStripSeparator4,
             this.MenuItemShowLicenseHistory});
             this.CmLDLAppMenu.Name = "CmLDLAppMenu";
-            this.CmLDLAppMenu.Size = new System.Drawing.Size(290, 226);
+            this.CmLDLAppMenu.Size = new System.Drawing.Size(290, 248);
+            this.CmLDLAppMenu.Opening += new System.ComponentModel.CancelEventHandler(this.CmLDLAppMenu_Opening);
             // 
             // MenuItemShowAppDetails
             // 
@@ -173,6 +174,7 @@
             this.schedualVisionTestToolStripMenuItem.Name = "schedualVisionTestToolStripMenuItem";
             this.schedualVisionTestToolStripMenuItem.Size = new System.Drawing.Size(221, 24);
             this.schedualVisionTestToolStripMenuItem.Text = "Schedule Vision Test";
+            this.schedualVisionTestToolStripMenuItem.Click += new System.EventHandler(this.schedualVisionTestToolStripMenuItem_Click);
             // 
             // schedualWrittenTestToolStripMenuItem
             // 
@@ -199,6 +201,11 @@
             this.MenuItemIssueLicenseFirstTime.Name = "MenuItemIssueLicenseFirstTime";
             this.MenuItemIssueLicenseFirstTime.Size = new System.Drawing.Size(289, 24);
             this.MenuItemIssueLicenseFirstTime.Text = "Issue Driving License (First time)";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(286, 6);
             // 
             // MenuItemShowLicense
             // 
@@ -371,16 +378,11 @@
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
             // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(286, 6);
-            // 
             // FrmManageLocalDrivingLicenseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 625);
+            this.ClientSize = new System.Drawing.Size(1095, 621);
             this.Controls.Add(this.rbCompleted);
             this.Controls.Add(this.RbCancelled);
             this.Controls.Add(this.RbNew);

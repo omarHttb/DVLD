@@ -445,5 +445,44 @@ namespace DataLayerDVLD
             return 0;
 
         }
+
+        public static DateTime GetLocalApplicationDate(int LLDId)
+        {
+
+            SqlConnection conn = new SqlConnection(clsDataLayerSettings.ConnectionString);
+
+            string query = @"SELECT        Applications.ApplicationDate
+FROM            Applications INNER JOIN
+                         LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
+						 where LocalDrivingLicenseApplicationID = @LLDId"
+               ;
+            SqlCommand command = new SqlCommand(query, conn);
+
+            command.Parameters.AddWithValue("@LLDId", LLDId);
+
+
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    return (DateTime)reader["ApplicationDate"];
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return DateTime.MinValue;
+        }
+
+
     }
 }

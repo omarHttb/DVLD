@@ -1,5 +1,6 @@
 ﻿using BusinessLayerDVLD;
 using DVLD.NewDrivingLicense;
+using DVLD.Tests.VisionTest;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,16 +26,8 @@ namespace DVLD.LocalApplicationFiles.ManageLocalApplications
             _loadAllLocalDrivingLicenseApplication();
             CbFilter.SelectedIndex = 0;
             MenuItemDeleteApp.Enabled = false;
-            MenuItemIssueLicenseFirstTime.Enabled = false;
-            MenuItemShowLicense.Enabled = false;
-            schedualWrittenTestToolStripMenuItem.Enabled = false;
-            scheduleStreetTestToolStripMenuItem.Enabled = false;
         }
-//        None
-//L.D.L.AppID
-//National No.	
-//Full Name
-//Status
+
         private void _FilterSetting()
         {
             switch (CbFilter.SelectedIndex)
@@ -200,13 +193,48 @@ namespace DVLD.LocalApplicationFiles.ManageLocalApplications
             
             frmNewLocalDrivingLicense frm = new frmNewLocalDrivingLicense(
                 (string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[2].Value ,
-                (int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[0].Value);
+                (int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[0].Value, (int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[5].Value);
 
             frm.ShowDialog();
             _loadAllLocalDrivingLicenseApplication();
 
         }
 
-       
+        private void schedualVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTestAppoinment frm = new FrmTestAppoinment((int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[0].Value
+                , (string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[1].Value,(int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[5].Value,
+                (string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[3].Value,FrmTestAppoinment.enTestType.VisionTest);
+            frm.ShowDialog();
+        }
+
+        private void CmLDLAppMenu_Opening(object sender, CancelEventArgs e)
+        {
+            switch((int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[5].Value)
+            {
+                case 0:
+                    schedualVisionTestToolStripMenuItem.Enabled = true;
+                    schedualWrittenTestToolStripMenuItem.Enabled = false;
+                    scheduleStreetTestToolStripMenuItem.Enabled = false;
+                    break;  
+                case 1:
+                    schedualVisionTestToolStripMenuItem.Enabled = false;
+                    schedualWrittenTestToolStripMenuItem.Enabled = true;
+                    scheduleStreetTestToolStripMenuItem.Enabled = false;
+                    break;
+                case 2:
+                    schedualVisionTestToolStripMenuItem.Enabled = false;
+                    schedualWrittenTestToolStripMenuItem.Enabled = false;
+                    scheduleStreetTestToolStripMenuItem.Enabled = true;
+                    break;
+                case 3:
+                    schedualVisionTestToolStripMenuItem.Enabled = false;
+                    schedualWrittenTestToolStripMenuItem.Enabled = false;
+                    scheduleStreetTestToolStripMenuItem.Enabled = false;
+                    break;
+                
+            }
+               
+        }
     }
 }

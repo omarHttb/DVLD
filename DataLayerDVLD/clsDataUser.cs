@@ -545,6 +545,39 @@ namespace DataLayerDVLD
             return isFound;
 
         }
+
+        public static string GetUserNameByUserId(int UserID)
+        {
+
+            SqlConnection conn = new SqlConnection(clsDataLayerSettings.ConnectionString);
+
+            string query = "SELECT UserName from Users where UserID = @UserID";
+
+            SqlCommand command = new SqlCommand(query, conn);
+
+            command.Parameters.AddWithValue("@UserID", UserID);
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    return (string)reader["UserName"];
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return "";
+
+        }
     }
 }
 

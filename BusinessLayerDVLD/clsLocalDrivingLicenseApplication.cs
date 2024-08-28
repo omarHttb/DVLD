@@ -53,6 +53,8 @@ namespace BusinessLayerDVLD
             return false;
         }
 
+        //Does Person Have Active Local Application With Same License Class
+        // so that user wont have two applications with same license class 
         public static bool DoesPersonHaveActiveLocalApplicationWithSameLicenseClass(int PersonID,int LicensesClassID)
         {
             if(clsDataLocalDrivingLicenseApplication.DoesPersonHaveActiveLocalApplicationWithSameLicenseClass(
@@ -110,6 +112,11 @@ namespace BusinessLayerDVLD
         public static int GetLicenseClassFromLLdAppId(int LdAppId) 
         {
             return clsDataLocalDrivingLicenseApplication.GetLicenseClassFromLLDAppId(LdAppId);
+        }
+        
+        public static DateTime GetLocalApplicationDate(int LdAppId)
+        {
+            return clsDataLocalDrivingLicenseApplication.GetLocalApplicationDate(LdAppId);
         }
      
     }

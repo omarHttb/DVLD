@@ -21,5 +21,10 @@ namespace BusinessLayerDVLD
             return clsDataManageTestTypes.UpdateTestType(TestTypeID, TestTypeTitle, TestTypeDescription,
                 TestTypeFees);
         }
+
+        public static decimal GetTestTypeFees(int TestTypeID) 
+        {
+            return clsDataManageTestTypes.GetTestFees(TestTypeID);
+        }
     }
 }

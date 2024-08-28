@@ -80,5 +80,39 @@ namespace DataLayerDVLD
 
             return (rowsAffected > 0);
         }
+
+        public static decimal GetApplicationFees(int ApplicationIdType)
+        {
+
+            SqlConnection conn = new SqlConnection(clsDataLayerSettings.ConnectionString);
+
+            string query = @"Select ApplicationFees from ApplicationTypes where ApplicationTypeID = @ApplicationIdType"
+                  ;
+            SqlCommand command = new SqlCommand(query, conn);
+
+            command.Parameters.AddWithValue("@ApplicationIdType", ApplicationIdType);
+
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    return (decimal)reader["ApplicationFees"];
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return 0;
+
+        }
     }
 }

@@ -32,6 +32,7 @@
             this.TcLocalDrivingLicenseApplication = new System.Windows.Forms.TabControl();
             this.TbPersonInfo = new System.Windows.Forms.TabPage();
             this.btnNextPage = new System.Windows.Forms.Button();
+            this.ucSearchForPerson1 = new DVLD.UserControls.UcSearchForPerson();
             this.TbLoginInfo = new System.Windows.Forms.TabPage();
             this.cbLicensesClasses = new System.Windows.Forms.ComboBox();
             this.lblCreatedBy = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.ucSearchForPerson1 = new DVLD.UserControls.UcSearchForPerson();
             this.TcLocalDrivingLicenseApplication.SuspendLayout();
             this.TbPersonInfo.SuspendLayout();
             this.TbLoginInfo.SuspendLayout();
@@ -96,6 +96,17 @@
             this.btnNextPage.UseVisualStyleBackColor = true;
             this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
             // 
+            // ucSearchForPerson1
+            // 
+            this.ucSearchForPerson1.Age = 0;
+            this.ucSearchForPerson1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucSearchForPerson1.Location = new System.Drawing.Point(7, 14);
+            this.ucSearchForPerson1.Margin = new System.Windows.Forms.Padding(4);
+            this.ucSearchForPerson1.Name = "ucSearchForPerson1";
+            this.ucSearchForPerson1.NationalNo = null;
+            this.ucSearchForPerson1.Size = new System.Drawing.Size(1157, 592);
+            this.ucSearchForPerson1.TabIndex = 2;
+            // 
             // TbLoginInfo
             // 
             this.TbLoginInfo.Controls.Add(this.cbLicensesClasses);
@@ -144,7 +155,7 @@
             this.lblFees.Name = "lblFees";
             this.lblFees.Size = new System.Drawing.Size(30, 24);
             this.lblFees.TabIndex = 11;
-            this.lblFees.Text = "15";
+            this.lblFees.Text = "??";
             // 
             // lblDate
             // 
@@ -238,15 +249,6 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ucSearchForPerson1
-            // 
-            this.ucSearchForPerson1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucSearchForPerson1.Location = new System.Drawing.Point(7, 14);
-            this.ucSearchForPerson1.Margin = new System.Windows.Forms.Padding(4);
-            this.ucSearchForPerson1.Name = "ucSearchForPerson1";
-            this.ucSearchForPerson1.Size = new System.Drawing.Size(1157, 592);
-            this.ucSearchForPerson1.TabIndex = 2;
             // 
             // frmNewLocalDrivingLicense
             // 

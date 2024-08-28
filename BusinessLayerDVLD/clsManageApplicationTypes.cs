@@ -22,5 +22,10 @@ namespace BusinessLayerDVLD
                 ApplicationTypeTitle, ApplicationFees);
         }
 
+        public static decimal GetApplicationFees(int ApplicationIdType)
+        {
+            return clsDataManageApplicationTypes.GetApplicationFees(ApplicationIdType);
+        }
+
     }
 }

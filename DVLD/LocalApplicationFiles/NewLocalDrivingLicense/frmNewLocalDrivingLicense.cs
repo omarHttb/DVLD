@@ -21,17 +21,17 @@ namespace DVLD.NewDrivingLicense
             InitializeComponent();
             _LoadLicenseClasses();
             lblDate.Text = DateTime.Now.ToShortDateString();
-            lblFees.Text = "15";
+            lblFees.Text = clsManageApplicationTypes.GetApplicationFees(1).ToString();
             lblCreatedBy.Text = GlobalProperties.LoggedInUserName;
         }
 
-        public frmNewLocalDrivingLicense(string NationalNo,int LocalDLApplicationId)
+        public frmNewLocalDrivingLicense(string NationalNo,int LocalDLApplicationId,int passedTest)
         {
            InitializeComponent();
            _LoadLicenseClasses();
            lblMode.Text = "Update Local Driving License Application";
 
-            lblDate.Text = DateTime.Now.ToShortDateString();
+            lblDate.Text = clsLocalDrivingLicenseApplication.GetLocalApplicationDate(LocalDLApplicationId).ToString();
             lblFees.Text = "15";
             lblCreatedBy.Text = GlobalProperties.LoggedInUserName;
 
@@ -47,8 +47,17 @@ namespace DVLD.NewDrivingLicense
            TcLocalDrivingLicenseApplication.SelectTab(1);
 
            _clsLocalDrivingLicenseApplication.IsUpdateMode = true;
+
+            if(passedTest > 0 )
+            {
+                cbLicensesClasses.Enabled = false;
+                BtnSave.Enabled = false ;
+                lblMode.Text = "Cant Edit because application is in progress";
+            }
         }
 
+
+       
         // close form
         private void button1_Click(object sender, EventArgs e)
         {
@@ -172,18 +181,20 @@ namespace DVLD.NewDrivingLicense
 
              if(lblMode.Text != "Update Local Driving License Application")
                 {
-                       _clsApplications.LastStatusDate = DateTime.Now;
+                       
                        _clsApplications.ApplicationDate = DateTime.Now;
                        _clsApplications.ApplicationTypeID = 1;
                        _clsApplications.ApplicationStatus = 1;
-                       _clsApplications.PaidFees = 15;
-                       _clsApplications.CreatedById = GlobalProperties.LoggedInUserID;
+                       _clsApplications.PaidFees = Convert.ToDecimal( lblFees.Text);
+                       _clsApplications.CreatedUserById = GlobalProperties.LoggedInUserID;
                        _clsApplications.ApplicantPersonID = ucSearchForPerson1.PersonID;
                 }
+                _clsApplications.LastStatusDate = DateTime.Now;
 
 
                 if (_SaveApplication())
                 {
+
                     MessageBox.Show("Application Saved Successfully", "Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                 }

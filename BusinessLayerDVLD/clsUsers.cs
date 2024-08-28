@@ -157,5 +157,11 @@ namespace BusinessLayerDVLD
         {
             return clsDataUser.IsUserActive(userName);
         }
+
+        public static string GetUserNameByUserId(int UserID)
+        {
+            return clsDataUser.GetUserNameByUserId(UserID);
+        }
+       
     }
 }

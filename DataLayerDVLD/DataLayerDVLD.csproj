@@ -50,6 +50,8 @@
     <Compile Include="clsDataManageApplicationTypes.cs" />
     <Compile Include="clsDataManageTestTypes.cs" />
     <Compile Include="clsDataPeople.cs" />
+    <Compile Include="clsDataTakeTest.cs" />
+    <Compile Include="clsDataTestsAppointments.cs" />
     <Compile Include="clsDataUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

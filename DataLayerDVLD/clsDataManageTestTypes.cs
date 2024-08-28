@@ -82,5 +82,39 @@ namespace DataLayerDVLD
 
             return (rowsAffected > 0);
         }
+
+        public static decimal GetTestFees(int TestTypeId)
+        {
+
+            SqlConnection conn = new SqlConnection(clsDataLayerSettings.ConnectionString);
+
+            string query = @"select TestTypeFees from TestTypes where TestTypeID = @TestTypeId"
+                  ;
+            SqlCommand command = new SqlCommand(query, conn);
+
+            command.Parameters.AddWithValue("@TestTypeId", TestTypeId);
+
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    return (decimal)reader["TestTypeFees"];
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return 0;
+
+        }
     }
 }
