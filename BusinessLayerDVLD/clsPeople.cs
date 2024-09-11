@@ -25,7 +25,8 @@ namespace BusinessLayerDVLD
         public DateTime DateOfBirth { get; set; }
         public int Gender { get; set; } 
         public int NationalityCountryId { get; set; }
-        public string ImagePath { get; set; }   
+        public string ImagePath { get; set; }  
+        public string FullName { get; set; }
 
 
         
@@ -55,6 +56,7 @@ namespace BusinessLayerDVLD
             this.Address = address;
             this.NationalityCountryId = nationalityCountryId;
             this.ImagePath = imagePath;
+            this.FullName = firstName + " " + secondName + " " + thirdName + " " + lastName;
 
 
             Mode = enMode.update;
@@ -201,6 +203,12 @@ namespace BusinessLayerDVLD
                 return false ;
             }
             
+        }
+
+        public static int GetPersonIDByNationalNumber(string NationalNo)
+        {
+
+            return clsDataPeople.GetPersonIdByInternationalNumber(NationalNo);
         }
 
         

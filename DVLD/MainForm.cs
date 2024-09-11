@@ -15,6 +15,9 @@ using DVLD.ManageApplicationTypes;
 using DVLD.ManageTestTypes;
 using DVLD.NewDrivingLicense;
 using DVLD.LocalApplicationFiles.ManageLocalApplications;
+using DVLD.ManageDrivers;
+using DVLD.License.International;
+using DVLD.InternationalLicense;
 
 namespace DVLD
 {
@@ -168,9 +171,20 @@ namespace DVLD
 
         private void btnManageGDLApplication_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("no");
+            frmManageInternationalLicense frm = new frmManageInternationalLicense();
+            frm.ShowDialog();
         }
 
+        private void BtnDrivers_Click_1(object sender, EventArgs e)
+        {
+            frmManageDrivers frm = new frmManageDrivers();  
+            frm.ShowDialog();
+        }
 
+        private void btnNewGlobalLicenses_Click(object sender, EventArgs e)
+        {
+            frmIssueInternationalLicense frm = new frmIssueInternationalLicense();
+            frm.ShowDialog();
+        }
     }
 }

@@ -43,9 +43,13 @@
   <ItemGroup>
     <Compile Include="clsDataApplications.cs" />
     <Compile Include="clsDataCountries.cs" />
+    <Compile Include="clsDataDetainLicense.cs" />
+    <Compile Include="clsDataDrivers.cs" />
     <Compile Include="clsDataFilterByPeople.cs" />
     <Compile Include="clsDataFilterByUser.cs" />
+    <Compile Include="clsDataInternationalLicense.cs" />
     <Compile Include="clsDataLayerSettings.cs" />
+    <Compile Include="clsDataLicenses.cs" />
     <Compile Include="clsDataLocalDrivingLicenseApplication.cs" />
     <Compile Include="clsDataManageApplicationTypes.cs" />
     <Compile Include="clsDataManageTestTypes.cs" />

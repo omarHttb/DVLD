@@ -41,7 +41,7 @@
             this.lblNumberOfRecord = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnClose = new System.Windows.Forms.Button();
-            this.ucApplicationInfo1 = new DVLD.Application_Info_user_control.UcApplicationInfo();
+            this.ucApplicationInfo1 = new DVLD.Application_Info_user_control.UcApplicationLocalLicenseInfo();
             ((System.ComponentModel.ISupportInitialize)(this.PbTestPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTestAppointments)).BeginInit();
             this.CmTestMenu.SuspendLayout();
@@ -220,7 +220,7 @@
         private System.Windows.Forms.Label lblNumberOfRecord;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnClose;
-        private Application_Info_user_control.UcApplicationInfo ucApplicationInfo1;
+        private Application_Info_user_control.UcApplicationLocalLicenseInfo ucApplicationInfo1;
         private System.Windows.Forms.ContextMenuStrip CmTestMenu;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem takeTestToolStripMenuItem;

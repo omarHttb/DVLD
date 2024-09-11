@@ -470,6 +470,46 @@ namespace DataLayerDVLD
             return (RowsAffected > 0);
         }
 
+        public static int GetPersonIdByInternationalNumber(string NationalNo)
+        {
+
+            SqlConnection connection = new SqlConnection(clsDataLayerSettings.ConnectionString);
+
+            string query = @"select PersonID from People where NationalNo = @NationalNo";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                {
+                    return insertedID;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return -1;
+        }
 
     }
 }

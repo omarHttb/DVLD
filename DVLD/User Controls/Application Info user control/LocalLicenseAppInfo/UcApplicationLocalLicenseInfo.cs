@@ -1,5 +1,6 @@
 ﻿using BusinessLayerDVLD;
 using DVLD.FrmPeopleManagement;
+using DVLD.License.Driver_License_Info;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,17 +15,18 @@ namespace DVLD.Application_Info_user_control
 {
 
     
-    public partial class UcApplicationInfo : UserControl
+    public partial class UcApplicationLocalLicenseInfo : UserControl
     {
 
         public int LdlAppId = -1;
         public string LicenseClass { get; set; }
         public int PassedTest { get; set; }
         public string FullName { get; set; }
+        public int ApplicattionID { get; set; }
 
         clsApplications _clsApplications = new clsApplications();
 
-        public UcApplicationInfo()
+        public UcApplicationLocalLicenseInfo()
         {
             InitializeComponent();
 
@@ -45,13 +47,21 @@ namespace DVLD.Application_Info_user_control
             {
                 _clsApplications = clsApplications.GetApplicationBasicInfo(LdlAppId);
 
-                lblAppId.Text = _clsApplications.ApplicationID.ToString();
+                
+                ApplicattionID = _clsApplications.ApplicationID;
+
+
+                lblAppId.Text = ApplicattionID.ToString();
                 lblStatus.Text = StatusName(_clsApplications.ApplicationStatus);
                 lblFees.Text = _clsApplications.PaidFees.ToString();
                 LblType.Text = _clsApplications.ApplicationTypeID.ToString();
                 lblDate.Text = _clsApplications.ApplicationDate.ToString();
                 lblStatusDate.Text = _clsApplications.LastStatusDate.ToString();
                 lblCreatedBy.Text = clsUsers.GetUserNameByUserId(_clsApplications.CreatedUserById);
+                if(_clsApplications.ApplicationStatus == 3)
+                {
+                    LlShowLicenseInfo.Enabled = true;
+                }
             }
         }
 
@@ -73,6 +83,12 @@ namespace DVLD.Application_Info_user_control
         private void lblViewPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmPersonInfo frm = new frmPersonInfo(_clsApplications.ApplicantPersonID);
+            frm.ShowDialog();
+        }
+
+        private void LlShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmDriverLicenseInfo frm = new frmDriverLicenseInfo(_clsApplications.ApplicantPersonID);
             frm.ShowDialog();
         }
     }

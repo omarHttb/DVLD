@@ -89,5 +89,10 @@ namespace DVLD.UserControls
         {
 
         }
+
+        private void lblGender_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

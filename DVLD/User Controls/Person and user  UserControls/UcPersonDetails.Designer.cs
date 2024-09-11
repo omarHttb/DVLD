@@ -40,6 +40,7 @@
             this.lblFullName = new System.Windows.Forms.Label();
             this.lblPersonId = new System.Windows.Forms.Label();
             this.LlEdit = new System.Windows.Forms.LinkLabel();
+            this.PbPerson = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.PbPerson = new System.Windows.Forms.PictureBox();
             this.GbPersonInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbPerson)).BeginInit();
             this.SuspendLayout();
@@ -137,6 +137,7 @@
             this.lblGender.Size = new System.Drawing.Size(35, 20);
             this.lblGender.TabIndex = 14;
             this.lblGender.Text = "N/A";
+            this.lblGender.Click += new System.EventHandler(this.lblGender_Click);
             // 
             // lblNationalNo
             // 
@@ -175,6 +176,17 @@
             this.LlEdit.TabStop = true;
             this.LlEdit.Text = "Edit Person Info";
             this.LlEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlEdit_LinkClicked);
+            // 
+            // PbPerson
+            // 
+            this.PbPerson.Image = global::DVLD.Properties.Resources._360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv;
+            this.PbPerson.InitialImage = global::DVLD.Properties.Resources._360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv;
+            this.PbPerson.Location = new System.Drawing.Point(712, 25);
+            this.PbPerson.Name = "PbPerson";
+            this.PbPerson.Size = new System.Drawing.Size(176, 163);
+            this.PbPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PbPerson.TabIndex = 9;
+            this.PbPerson.TabStop = false;
             // 
             // label9
             // 
@@ -256,17 +268,6 @@
             this.label1.Size = new System.Drawing.Size(88, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Person ID :";
-            // 
-            // PbPerson
-            // 
-            this.PbPerson.Image = global::DVLD.Properties.Resources._360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv;
-            this.PbPerson.InitialImage = global::DVLD.Properties.Resources._360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv;
-            this.PbPerson.Location = new System.Drawing.Point(712, 25);
-            this.PbPerson.Name = "PbPerson";
-            this.PbPerson.Size = new System.Drawing.Size(176, 163);
-            this.PbPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PbPerson.TabIndex = 9;
-            this.PbPerson.TabStop = false;
             // 
             // UcPersonDetails
             // 

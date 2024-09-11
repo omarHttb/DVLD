@@ -49,7 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblTestType = new System.Windows.Forms.Label();
+            this.lblScheduleTest = new System.Windows.Forms.Label();
             this.PbTestPicture = new System.Windows.Forms.PictureBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.GbScheduleTest.SuspendLayout();
@@ -83,7 +83,7 @@
             this.GbScheduleTest.Controls.Add(this.label3);
             this.GbScheduleTest.Controls.Add(this.label2);
             this.GbScheduleTest.Controls.Add(this.label1);
-            this.GbScheduleTest.Controls.Add(this.lblTestType);
+            this.GbScheduleTest.Controls.Add(this.lblScheduleTest);
             this.GbScheduleTest.Controls.Add(this.PbTestPicture);
             this.GbScheduleTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbScheduleTest.Location = new System.Drawing.Point(12, 12);
@@ -289,16 +289,16 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "D.L APP.ID:";
             // 
-            // lblTestType
+            // lblScheduleTest
             // 
-            this.lblTestType.AutoSize = true;
-            this.lblTestType.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTestType.Location = new System.Drawing.Point(122, 127);
-            this.lblTestType.Name = "lblTestType";
-            this.lblTestType.Size = new System.Drawing.Size(182, 29);
-            this.lblTestType.TabIndex = 1;
-            this.lblTestType.Text = "Schedule Test";
+            this.lblScheduleTest.AutoSize = true;
+            this.lblScheduleTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScheduleTest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblScheduleTest.Location = new System.Drawing.Point(122, 127);
+            this.lblScheduleTest.Name = "lblScheduleTest";
+            this.lblScheduleTest.Size = new System.Drawing.Size(182, 29);
+            this.lblScheduleTest.TabIndex = 1;
+            this.lblScheduleTest.Text = "Schedule Test";
             // 
             // PbTestPicture
             // 
@@ -364,7 +364,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblTestType;
+        private System.Windows.Forms.Label lblScheduleTest;
         private System.Windows.Forms.PictureBox PbTestPicture;
     }
 }

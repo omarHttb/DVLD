@@ -504,7 +504,6 @@ namespace DataLayerDVLD
 
         }
 
-        //kaka
         public static bool GetUserDetailsByUserName(string UserName, ref int UserID,  ref int  PersonID)
         {
             bool isFound = false;

@@ -102,5 +102,49 @@ namespace DataLayerDVLD
                 throw new Exception(ex.Message);
             }
         }
+
+        // get last test result
+        public static byte GetLastTestResult(int LdlAppID,int TestTypeID)
+        {
+
+            SqlConnection conn = new SqlConnection(clsDataLayerSettings.ConnectionString);
+
+            string query = @"
+SELECT    top 1    TestAppointments.TestTypeID, Tests.TestResult
+FROM            TestAppointments INNER JOIN
+                         Tests ON TestAppointments.TestAppointmentID = Tests.TestAppointmentID INNER JOIN
+                         LocalDrivingLicenseApplications ON TestAppointments.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
+						 where LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = @LdlAppID and TestTypeID = @TestTypeID
+                         order by TestAppointments.TestAppointmentID desc";
+            SqlCommand command = new SqlCommand(query, conn);
+
+            command.Parameters.AddWithValue("@LdlAppID", LdlAppID);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    // Read the TestResult as a boolean
+                    bool testResult = (bool)reader["TestResult"];
+                    // Convert the boolean to a byte (1 for true, 0 for false)
+                    return testResult ? (byte)1 : (byte)0;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return 0;
+
+        }
     }
 }

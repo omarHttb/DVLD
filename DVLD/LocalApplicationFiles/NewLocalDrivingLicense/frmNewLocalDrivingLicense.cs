@@ -37,6 +37,7 @@ namespace DVLD.NewDrivingLicense
 
             ucSearchForPerson1.NationalNo = NationalNo;
             ucSearchForPerson1.UpdateModeByNationalNo();
+           
             ucSearchForPerson1.LoadPersonInfo();
 
            lblApplicationID.Text = LocalDLApplicationId.ToString();

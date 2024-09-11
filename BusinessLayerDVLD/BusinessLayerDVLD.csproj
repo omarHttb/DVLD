@@ -43,8 +43,12 @@
   <ItemGroup>
     <Compile Include="clsApplications.cs" />
     <Compile Include="clsCountries.cs" />
+    <Compile Include="clsDetainLicense.cs" />
+    <Compile Include="clsDrivers.cs" />
     <Compile Include="clsFilterByPeople.cs" />
     <Compile Include="clsFilterByUser.cs" />
+    <Compile Include="clsInternationalLicense.cs" />
+    <Compile Include="clsLicenses.cs" />
     <Compile Include="clsLocalDrivingLicenseApplication.cs" />
     <Compile Include="clsManageApplicationTypes.cs" />
     <Compile Include="clsManageTestTypes.cs" />

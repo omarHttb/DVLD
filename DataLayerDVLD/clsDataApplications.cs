@@ -166,7 +166,39 @@ SELECT SCOPE_IDENTITY();";
             return isFound;
         }
 
+        public static int GetPersonIdFromApplicationID(int AppID)
+        {
 
+            SqlConnection conn = new SqlConnection(clsDataLayerSettings.ConnectionString);
+
+            string query = @"select ApplicantPersonID from Applications where ApplicationID = @AppID "
+               ;
+            SqlCommand command = new SqlCommand(query, conn);
+
+            command.Parameters.AddWithValue("@AppID", AppID);
+
+
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    return (int)reader["ApplicantPersonID"];
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return -1;
+        }
 
 
     }

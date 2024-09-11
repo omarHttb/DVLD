@@ -14,11 +14,52 @@ namespace DVLD.Tests.ScheduleTest
 {
     public partial class FrmScheduleTest : Form
     {
+
+
         public enum enTestType { VisionTest, WrittenTest, StreetTest }
         enTestType TestType;
+
         private decimal _TotalFees = -1;
         private bool IsEditMode = false;
         int AppointmentId = -1;
+        bool IsRetakeTest = false;
+        clsApplications _clsApplications = new clsApplications();
+
+        public FrmScheduleTest(int DlAppId,string DrivingClass,string FullName,enTestType testType,bool isRetakeTest
+            , int trial)
+        {
+            InitializeComponent();
+            TestType = testType;
+            lblDlAppId.Text = DlAppId.ToString();
+            lblDrivingClass.Text = DrivingClass.ToString();
+            lblFullName.Text = FullName.ToString();
+            IsRetakeTest = isRetakeTest;
+            LblTrials.Text = trial.ToString();
+
+        }
+        public FrmScheduleTest(int DlAppId, string DrivingClass, string FullName, enTestType testType
+            ,bool isEditMode,int appointmentId, int trial)
+        {
+            InitializeComponent();
+            TestType = testType;
+            lblDlAppId.Text = DlAppId.ToString();
+            lblDrivingClass.Text = DrivingClass.ToString();
+            lblFullName.Text = FullName.ToString();
+            GbRetakeTestInfo.Enabled = false;
+            IsEditMode = isEditMode;
+            AppointmentId = appointmentId;
+            LblTrials.Text = trial.ToString();
+        }
+
+        private void FrmScheduleTest_Load(object sender, EventArgs e)
+        {
+            _LoadTestType();
+            DtAppointmentDate.MinDate = DateTime.Now;
+            isRetakeTest();
+            CalculateTotalFees();
+
+
+        }
 
         private void ShowErrorMessage()
         {
@@ -31,38 +72,9 @@ namespace DVLD.Tests.ScheduleTest
                     , MessageBoxIcon.Information);
         }
 
-        public FrmScheduleTest(int DlAppId,string DrivingClass,string FullName,enTestType testType)
-        {
-            InitializeComponent();
-            TestType = testType;
-            lblDlAppId.Text = DlAppId.ToString();
-            lblDrivingClass.Text = DrivingClass.ToString();
-            lblFullName.Text = FullName.ToString();
-            GbRetakeTestInfo.Enabled = false;
-        }
-        public FrmScheduleTest(int DlAppId, string DrivingClass, string FullName, enTestType testType
-            ,bool isEditMode,int appointmentId)
-        {
-            InitializeComponent();
-            TestType = testType;
-            lblDlAppId.Text = DlAppId.ToString();
-            lblDrivingClass.Text = DrivingClass.ToString();
-            lblFullName.Text = FullName.ToString();
-            GbRetakeTestInfo.Enabled = false;
-            IsEditMode = isEditMode;
-            AppointmentId = appointmentId;
-        }
-
-        private void FrmScheduleTest_Load(object sender, EventArgs e)
-        {
-            _LoadTestType();
-            CalculateTotalFees();
-            DtAppointmentDate.MinDate = DateTime.Now;
-        }
-
         public void CalculateTotalFees()
         {
-            _TotalFees = decimal.Parse(lblFees.Text + decimal.Parse(lblRAppFees.Text));
+            _TotalFees = decimal.Parse(lblFees.Text) + decimal.Parse(lblRAppFees.Text);
             lblTotalFees.Text = _TotalFees.ToString();
         }
 
@@ -90,9 +102,34 @@ namespace DVLD.Tests.ScheduleTest
             }
         }
 
+        private void isRetakeTest()
+        {
+            if(IsRetakeTest == true)
+            {
+                GbRetakeTestInfo.Enabled = true;
+                lblScheduleTest.Text = "Schedule Retake Test";
+                lblRAppFees.Text = clsManageApplicationTypes.GetApplicationFees(8).ToString();
+                return;
+            }
+            GbRetakeTestInfo.Enabled = false;
+        }
+
+
         private void BtnClose_Click(object sender, EventArgs e)
         {
             this.Close();   
+        }
+
+        private void AddRetakeTestApplication()
+        {
+            _clsApplications.LastStatusDate = DateTime.Now;
+            _clsApplications.PaidFees = Convert.ToDecimal( lblRAppFees.Text);
+            _clsApplications.ApplicationTypeID = 8;
+            _clsApplications.CreatedUserById = GlobalProperties.LoggedInUserID;
+            _clsApplications.ApplicantPersonID = clsLocalDrivingLicenseApplication.GetPersonIdFromLocalDrivingLicenseAppID(int.Parse(lblDlAppId.Text));
+            _clsApplications.ApplicationDate = DateTime.Now;
+            _clsApplications.ApplicationStatus = 1;
+            _clsApplications.Save();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -101,46 +138,24 @@ namespace DVLD.Tests.ScheduleTest
             {
                 if (IsEditMode == false)
                 {
-                    // add new mode
-                    switch (TestType)
+                    if (IsRetakeTest == true)
                     {
-
-
-                        case enTestType.VisionTest:
-                            if (clsTestsAppointments.AddNewAppointment(1, Int32.Parse(lblDlAppId.Text), DtAppointmentDate.Value, _TotalFees
-                                , GlobalProperties.LoggedInUserID, 0))
-                            {
-                                ShowSccuessMessage();
-                            }
-                            else
-                            {
-                                ShowErrorMessage();
-                            }
-                            break;
-                        case enTestType.WrittenTest:
-                            if (clsTestsAppointments.AddNewAppointment(2, Int32.Parse(lblDlAppId.Text), DtAppointmentDate.Value, _TotalFees
-                                , GlobalProperties.LoggedInUserID, 0))
-                            {
-                                ShowSccuessMessage();
-                            }
-                            else
-                            {
-                                ShowErrorMessage();
-                            }
-                            break;
-                        case enTestType.StreetTest:
-                            if (clsTestsAppointments.AddNewAppointment(3, Int32.Parse(lblDlAppId.Text), DtAppointmentDate.Value, _TotalFees
-                                , GlobalProperties.LoggedInUserID, 0))
-                            {
-                                ShowSccuessMessage();
-                            }
-                            else
-                            {
-                                ShowErrorMessage();
-                            }
-                            break;
+                        AddRetakeTestApplication();
                     }
+                    // add new mode
+                   if (clsTestsAppointments.AddNewAppointment((int)TestType + 1, Int32.Parse(lblDlAppId.Text),
+                       DtAppointmentDate.Value, _TotalFees , GlobalProperties.LoggedInUserID, 0))
+                   {
+                                
+                     ShowSccuessMessage();
+                   }
+                   else
+                   {
+                    ShowErrorMessage();
+                   }
+                 
                 }
+
                 //edit mode
                 else
                 {
@@ -152,8 +167,9 @@ namespace DVLD.Tests.ScheduleTest
                         ShowErrorMessage();
                     }
                 }
+                this.Close();
             }
-
+            
                 catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

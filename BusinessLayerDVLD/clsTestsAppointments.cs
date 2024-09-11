@@ -31,6 +31,11 @@ namespace BusinessLayerDVLD
             return clsDataTestsAppointments.UpdateAppointmentDate(AppointmentId , NewAppointmentDate);
         }
 
+        public static bool IsLastTestAppointmentLocked(int LdlAppID, int TestTypeID)
+        {
+           return clsDataTestsAppointments.IsLastTestAppointmentLocked(LdlAppID, TestTypeID);
+        }
+
   
     }
 }

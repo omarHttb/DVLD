@@ -1,4 +1,7 @@
 ﻿using BusinessLayerDVLD;
+using DVLD.License;
+using DVLD.License.Driver_License_Info;
+using DVLD.ManageApplicationTypes;
 using DVLD.NewDrivingLicense;
 using DVLD.Tests.VisionTest;
 using System;
@@ -76,6 +79,7 @@ namespace DVLD.LocalApplicationFiles.ManageLocalApplications
         {
             frmNewLocalDrivingLicense frm = new frmNewLocalDrivingLicense();    
             frm.ShowDialog();
+            _loadAllLocalDrivingLicenseApplication();
         }
 
         private void CbFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -206,35 +210,158 @@ namespace DVLD.LocalApplicationFiles.ManageLocalApplications
                 , (string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[1].Value,(int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[5].Value,
                 (string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[3].Value,FrmTestAppoinment.enTestType.VisionTest);
             frm.ShowDialog();
+            _loadAllLocalDrivingLicenseApplication();
+
+        }
+
+        private void schedualWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTestAppoinment frm = new FrmTestAppoinment((int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[0].Value
+    , (string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[1].Value, (int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[5].Value,
+    (string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[3].Value, FrmTestAppoinment.enTestType.WrittenTest);
+            frm.ShowDialog();
+            _loadAllLocalDrivingLicenseApplication();
+
+        }
+        private void scheduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTestAppoinment frm = new FrmTestAppoinment((int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[0].Value
+, (string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[1].Value, (int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[5].Value,
+(string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[3].Value, FrmTestAppoinment.enTestType.StreetTest);
+            frm.ShowDialog();
+            _loadAllLocalDrivingLicenseApplication();
+
         }
 
         private void CmLDLAppMenu_Opening(object sender, CancelEventArgs e)
         {
-            switch((int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[5].Value)
+            if ((string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[6].Value == "New")
             {
-                case 0:
-                    schedualVisionTestToolStripMenuItem.Enabled = true;
-                    schedualWrittenTestToolStripMenuItem.Enabled = false;
-                    scheduleStreetTestToolStripMenuItem.Enabled = false;
-                    break;  
-                case 1:
-                    schedualVisionTestToolStripMenuItem.Enabled = false;
-                    schedualWrittenTestToolStripMenuItem.Enabled = true;
-                    scheduleStreetTestToolStripMenuItem.Enabled = false;
-                    break;
-                case 2:
-                    schedualVisionTestToolStripMenuItem.Enabled = false;
-                    schedualWrittenTestToolStripMenuItem.Enabled = false;
-                    scheduleStreetTestToolStripMenuItem.Enabled = true;
-                    break;
-                case 3:
-                    schedualVisionTestToolStripMenuItem.Enabled = false;
-                    schedualWrittenTestToolStripMenuItem.Enabled = false;
-                    scheduleStreetTestToolStripMenuItem.Enabled = false;
-                    break;
-                
+                switch ((int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[5].Value)
+                {
+                    case 0:
+                        // schedule test submenu
+                        schedualVisionTestToolStripMenuItem.Enabled = true;
+                        schedualWrittenTestToolStripMenuItem.Enabled = false;
+                        scheduleStreetTestToolStripMenuItem.Enabled = false;
+
+                        //Menu
+                        MenuItemSchedualTest.Enabled = true;
+                        MenuItemDeleteApp.Enabled = false;
+                        MenuItemCancelApp.Enabled = true;
+                        MenuItemEditApplication.Enabled = true;
+                        MenuItemIssueLicenseFirstTime.Enabled = false;
+                        MenuItemShowLicense.Enabled = false;
+
+
+                        break;
+                    case 1:
+                        // schedule test submenu
+                        schedualVisionTestToolStripMenuItem.Enabled = false;
+                        schedualWrittenTestToolStripMenuItem.Enabled = true;
+                        scheduleStreetTestToolStripMenuItem.Enabled = false;
+
+                        //Menu
+                        MenuItemSchedualTest.Enabled = true;
+                        MenuItemDeleteApp.Enabled = false;
+                        MenuItemCancelApp.Enabled = true;
+                        MenuItemEditApplication.Enabled = true;
+                        MenuItemIssueLicenseFirstTime.Enabled = false;
+                        MenuItemShowLicense.Enabled = false;
+
+
+
+
+                        break;
+                    case 2:
+                        // schedule test submenu
+                        schedualVisionTestToolStripMenuItem.Enabled = false;
+                        schedualWrittenTestToolStripMenuItem.Enabled = false;
+                        scheduleStreetTestToolStripMenuItem.Enabled = true;
+
+                        //Menu
+                        MenuItemSchedualTest.Enabled = true;
+                        MenuItemDeleteApp.Enabled = false;
+                        MenuItemCancelApp.Enabled = true;
+                        MenuItemEditApplication.Enabled = true;
+                        MenuItemIssueLicenseFirstTime.Enabled = false;
+                        MenuItemShowLicense.Enabled = false;
+
+
+
+                        break;
+                    case 3:
+                        // schedule test submenu
+                        schedualVisionTestToolStripMenuItem.Enabled = false;
+                        schedualWrittenTestToolStripMenuItem.Enabled = false;
+                        scheduleStreetTestToolStripMenuItem.Enabled = false;
+
+                        //Menu
+                        MenuItemEditApplication.Enabled = false;
+                        MenuItemSchedualTest.Enabled = true;
+                        MenuItemDeleteApp.Enabled = false;
+                        MenuItemIssueLicenseFirstTime.Enabled = true;
+                        MenuItemShowLicense.Enabled = false;
+
+
+                        break;
+
+                }
             }
-               
+            else if ((string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[6].Value == "Cancelled")
+            {
+                MenuItemSchedualTest.Enabled = false;
+                MenuItemShowLicense.Enabled = false;
+                MenuItemCancelApp.Enabled = false;
+                MenuItemEditApplication.Enabled = false;
+                MenuItemDeleteApp.Enabled = true;
+                MenuItemIssueLicenseFirstTime.Enabled = false;
+            }
+            else
+            {
+                MenuItemSchedualTest.Enabled = false;
+                MenuItemShowLicense.Enabled = true;
+                MenuItemCancelApp.Enabled = false;
+                MenuItemEditApplication.Enabled = false;
+                MenuItemDeleteApp.Enabled = false;
+                MenuItemIssueLicenseFirstTime.Enabled = false;
+                MenuItemShowLicense.Enabled = true;
+            }
+            
+        }
+
+        private void MenuItemShowAppDetails_Click(object sender, EventArgs e)
+        {
+            frmApplicationDetails frm = new frmApplicationDetails(
+                (int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[0].Value
+                , (string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[1].Value,
+                (int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[5].Value,
+                (string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[3].Value);
+            frm.ShowDialog();
+        }
+
+        private void MenuItemIssueLicenseFirstTime_Click(object sender, EventArgs e)
+        {
+            frmIssueDrivingLicenseFirstTime frm = new frmIssueDrivingLicenseFirstTime(
+                (int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[0].Value
+                , (string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[1].Value,
+                (int)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[5].Value,
+                (string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[3].Value, 
+                (string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[2].Value);
+            frm.ShowDialog();
+            _loadAllLocalDrivingLicenseApplication();
+        }
+
+        private void MenuItemShowLicense_Click(object sender, EventArgs e)
+        {
+            frmDriverLicenseInfo frm = new frmDriverLicenseInfo((string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[2].Value);
+            frm.ShowDialog();
+        }
+
+        private void MenuItemShowLicenseHistory_Click(object sender, EventArgs e)
+        {
+            frmLicenseHistory frm = new frmLicenseHistory((string)DvgLocalDrvingLicenseApplication.CurrentRow.Cells[2].Value);
+            frm.ShowDialog();   
         }
     }
 }

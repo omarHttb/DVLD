@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Application_Info_user_control
 {
-    partial class UcApplicationInfo
+    partial class UcApplicationLocalLicenseInfo
     {
         /// <summary> 
         /// Required designer variable.
@@ -283,6 +283,7 @@
             this.LlShowLicenseInfo.TabIndex = 6;
             this.LlShowLicenseInfo.TabStop = true;
             this.LlShowLicenseInfo.Text = "Show License Info";
+            this.LlShowLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlShowLicenseInfo_LinkClicked);
             // 
             // LblPassedTest
             // 

@@ -18,7 +18,8 @@ namespace DVLD.Tests.TakeTest
             enTestType TestType;
             int AppointmentID = -1;
 
-        public frmTakeTest( int LdlAppID,int appointmentId, string DrivingClass, string FullName, enTestType testType,DateTime AppointmentDate)
+        public frmTakeTest( int LdlAppID,int appointmentId, string DrivingClass, string FullName,
+            enTestType testType,DateTime AppointmentDate,int trials)
         {
             InitializeComponent();
             lblDlAppId.Text = LdlAppID.ToString();
@@ -28,6 +29,8 @@ namespace DVLD.Tests.TakeTest
             TestType = testType;
             lblTestDate.Text = AppointmentDate.ToString();
              AppointmentID = appointmentId;
+            trials -= 1;
+            LblTrials.Text =  trials.ToString();    
             
         }
 

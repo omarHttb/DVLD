@@ -483,6 +483,44 @@ FROM            Applications INNER JOIN
             return DateTime.MinValue;
         }
 
+        // getting the id of person from LLDappID 
+        public static int GetPersonIdFromLocalDrivingLicenseAppID(int LdlAppID)
+        {
+
+            SqlConnection conn = new SqlConnection(clsDataLayerSettings.ConnectionString);
+
+            string query = @"SELECT        Applications.ApplicantPersonID
+                         FROM   LocalDrivingLicenseApplications INNER JOIN
+                         Applications ON LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
+						 where LocalDrivingLicenseApplicationID = @LdlAppID"
+               ;
+            SqlCommand command = new SqlCommand(query, conn);
+
+            command.Parameters.AddWithValue("@LdlAppID", LdlAppID);
+
+
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    return (int)reader["ApplicantPersonID"];
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return -1;
+        }
+
 
     }
 }

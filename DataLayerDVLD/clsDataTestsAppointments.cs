@@ -24,7 +24,7 @@ namespace DataLayerDVLD
                 when IsLocked = 0 then 'Not Locked'
             end as 'Is Locked'
                    
-            from TestAppointments where LocalDrivingLicenseApplicationID = @LdlAppId and TestTypeID = @TestTypeId";
+            from TestAppointments where LocalDrivingLicenseApplicationID = @LdlAppId and TestTypeID = @TestTypeId order by TestAppointmentID desc";
 
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -155,6 +155,42 @@ namespace DataLayerDVLD
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public static bool IsLastTestAppointmentLocked(int LdlAppID, int TestTypeID)
+        {
+
+            SqlConnection conn = new SqlConnection(clsDataLayerSettings.ConnectionString);
+
+            string query = @"
+                        SELECT top 1 TestTypeID ,AppointmentDate , IsLocked  from TestAppointments
+                        where LocalDrivingLicenseApplicationID = @LdlAppID and TestTypeID = @TestTypeID order by AppointmentDate desc";
+            SqlCommand command = new SqlCommand(query, conn);
+
+            command.Parameters.AddWithValue("@LdlAppID", LdlAppID);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    return (bool)reader["IsLocked"];
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return true;
+
         }
     }
 }

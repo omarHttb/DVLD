@@ -91,6 +91,12 @@ namespace BusinessLayerDVLD
                 return null;
         }
 
- 
+        public static int GetPersonIdFromApplicationID(int AppID)
+        {
+            return clsDataApplications.GetPersonIdFromApplicationID(AppID);
+        }
+
+
+
     }
 }

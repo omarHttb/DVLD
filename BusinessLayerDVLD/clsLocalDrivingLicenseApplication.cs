@@ -118,6 +118,12 @@ namespace BusinessLayerDVLD
         {
             return clsDataLocalDrivingLicenseApplication.GetLocalApplicationDate(LdAppId);
         }
-     
+
+        public static int GetPersonIdFromLocalDrivingLicenseAppID(int LdlAppID)
+        {
+            return clsDataLocalDrivingLicenseApplication.GetPersonIdFromLocalDrivingLicenseAppID(LdlAppID);
+        }
+
+
     }
 }
