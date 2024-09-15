@@ -45,7 +45,7 @@ namespace DVLD.License.International
         {
             if (ucSearchForLicense1.LicenseID == -1)
             {
-                MessageBox.Show("No License Avaialbe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No License Availabe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return true;
             }
             else if (ucSearchForLicense1.IsActive == "Not Active")
@@ -108,8 +108,8 @@ namespace DVLD.License.International
 
         private void LLShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //frmLicenseHistory frm = new frmLicenseHistory(ucSearchForLicense1.NationalNo);
-            //frm.ShowDialog();
+            frmLicenseHistory frm = new frmLicenseHistory(ucSearchForLicense1.NationalNo);
+            frm.ShowDialog();
 
             
         }

@@ -1,5 +1,6 @@
 ﻿using BusinessLayerDVLD;
 using DVLD.License.Driver_License_Info;
+using DVLD.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,9 @@ namespace DVLD.User_Controls.License.SearchForLicenseInfo
         public int DriverID { get; set; } = -1;
         public int PersonId { get; set; } = -1;
         public string NationalNo { get; set; } = "";
+        public int LicenseClassID { get; set; }
+        public DateTime ExpirationDate { get; set; }
+        public string Notes { get; set; }
         
        
         clsLicenses _clsLicenses = new clsLicenses();
@@ -34,24 +38,26 @@ namespace DVLD.User_Controls.License.SearchForLicenseInfo
 
         }
 
-        private string isLicenseDetained()
+        private string isLicenseDetained(int LicenseID)
         {
-            if (clsDetainLicense.IsLicenseDetained(Convert.ToInt32( txtFilter.Text)))
+
+
+            if (clsDetainLicense.IsLicenseNotDetained(LicenseID))
             {
-                return "Yes";
+                return "No";
             }
             else
-                return "No";
+                return "Yes";
         }
 
         
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            
             _clsLicenses = clsLicenses.FindLicenseInfoByLicenseID(Convert.ToInt32(txtFilter.Text));
             if(_clsLicenses == null ) 
             {
+                PbPerson.Image = Resources._360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv;
                 MessageBox.Show("License Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -63,7 +69,7 @@ namespace DVLD.User_Controls.License.SearchForLicenseInfo
             lblIssueDate.Text = _clsLicenses.IssueDate.ToString(); 
             lblIssueReason.Text = _clsLicenses.IssueReason;
             lblDriverID.Text = _clsLicenses.DriverID.ToString();
-            lblIsDetained.Text = isLicenseDetained();
+            lblIsDetained.Text = isLicenseDetained(int.Parse(txtFilter.Text));
             if (_clsLicenses.Notes != "")
             {
                 lblNotes.Text = _clsLicenses.Notes;
@@ -101,11 +107,82 @@ namespace DVLD.User_Controls.License.SearchForLicenseInfo
             IsActive = lblIsActive.Text;
             LicenseID = _clsLicenses.LicenseID;
             DriverID = _clsLicenses.DriverID;
-
+            LicenseClassID = _clsLicenses.LicenseClassID;
+            ExpirationDate = _clsLicenses.ExpirationDate;
+            Notes = _clsLicenses.Notes;
             // Trigger the custom event
             LicenseFoundClick?.Invoke(this, EventArgs.Empty);
+
+            
         }
 
-        
+        public void LoadByLicenseId(int licenseID)
+        {
+            _clsLicenses = clsLicenses.FindLicenseInfoByLicenseID(licenseID);
+
+            lblClass.Text = _clsLicenses.LicenseClass;
+            lblIsActive.Text = _clsLicenses.IsActive;
+            lblLicenseID.Text = licenseID.ToString();
+            lblExpirationDate.Text = _clsLicenses.ExpirationDate.ToString();
+            lblIssueDate.Text = _clsLicenses.IssueDate.ToString();
+            lblIssueReason.Text = _clsLicenses.IssueReason;
+            lblDriverID.Text = _clsLicenses.DriverID.ToString();
+            lblIsDetained.Text = isLicenseDetained(licenseID);
+            txtFilter.Text = licenseID.ToString();  
+            if (_clsLicenses.Notes != "")
+            {
+                lblNotes.Text = _clsLicenses.Notes;
+            }
+            else
+                lblNotes.Text = "No Notes";
+            // Person Info
+            PersonId = clsDrivers.GetPersonIDByDriverID(_clsLicenses.DriverID);
+
+            _clsPeople = clsPeople.FindPersonById(PersonId);
+            lblFullName.Text = _clsPeople.FullName;
+            lblDateOfBirth.Text = _clsPeople.DateOfBirth.ToString();
+            if (_clsPeople.Gender == 0)
+            {
+                lblGender.Text = "Male";
+            }
+            else
+            {
+                lblGender.Text = "Female";
+            }
+            lblNationalNo.Text = _clsPeople.NationalNo;
+            NationalNo = _clsPeople.NationalNo;
+
+            if (_clsPeople.ImagePath != "")
+            {
+                PbPerson.Image = new Bitmap("C:\\Users\\omar hattab\\Pictures\\DVLD Images\\" + _clsPeople.ImagePath);
+
+            }
+
+
+
+            //Utility
+
+            IsDetained = lblIsDetained.Text;
+            IsActive = lblIsActive.Text;
+            LicenseID = _clsLicenses.LicenseID;
+            DriverID = _clsLicenses.DriverID;
+            LicenseClassID = _clsLicenses.LicenseClassID;
+            ExpirationDate = _clsLicenses.ExpirationDate;
+            Notes = _clsLicenses.Notes;
+
+            btnSearch.Enabled = false;
+            txtFilter.Enabled = false;
+
+        }
+
+        public void ChangeToDetained()
+        {
+            lblIsDetained.Text = "Yes";
+        }
+        public void ChangeToReleased()
+        {
+            lblIsDetained.Text = "No";
+        }
+
     }
 }

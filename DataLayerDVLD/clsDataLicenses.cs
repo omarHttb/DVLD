@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DataLayerDVLD
 {
@@ -128,7 +129,7 @@ SELECT SCOPE_IDENTITY();";
 
         public static bool GetPersonLicenseByLicenseID( int LicenseID, ref int DriverID,
             ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes, ref string IssueReason
-            , ref string IsActive, ref string LicenseClass)
+            , ref string IsActive, ref string LicenseClass, ref int LicenseClassID,ref int ApplicationID)
         {
 
             bool isFound = false;
@@ -136,7 +137,7 @@ SELECT SCOPE_IDENTITY();";
 
 
             string query = @"
-                SELECT        Licenses.LicenseID, Licenses.DriverID, Licenses.IssueDate, Licenses.ExpirationDate,
+                SELECT        Licenses.LicenseID, Licenses.DriverID,  LicenseClassID ,Licenses.IssueDate,ApplicationID, Licenses.ExpirationDate,
                 Licenses.Notes, 
                 case 
                 when IsActive = 0 then 'Not Active'
@@ -172,6 +173,8 @@ SELECT SCOPE_IDENTITY();";
                     IsActive = (string)reader["IsActive"];
                     IssueReason = (string)reader["IssueReason"];
                     LicenseClass = (string)reader["ClassName"];
+                    LicenseClassID = (int)reader["LicenseClassID"];
+                    ApplicationID = (int)reader["ApplicationID"];
 
                     if (reader["Notes"] != DBNull.Value)
                     {
@@ -203,7 +206,7 @@ SELECT SCOPE_IDENTITY();";
 
         public static bool GetPersonLicenseByPersonID(int PersonID, ref int LicenseID, ref int DriverID,
             ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes, ref string IssueReason
-            , ref string IsActive, ref string LicenseClass)
+            , ref string IsActive, ref string LicenseClass,ref int LicenseClassID, ref int ApplicationID)
         {
 
             bool isFound = false;
@@ -211,7 +214,7 @@ SELECT SCOPE_IDENTITY();";
 
 
             string query = @"
-                SELECT        Licenses.LicenseID, Licenses.DriverID, Licenses.IssueDate, Licenses.ExpirationDate,
+                SELECT        Licenses.LicenseID, Licenses.DriverID, LicenseClassID ,Licenses.IssueDate,ApplicationID, Licenses.ExpirationDate,
                 Licenses.Notes, 
                 case 
                 when IsActive = 0 then 'Not Active'
@@ -248,6 +251,8 @@ SELECT SCOPE_IDENTITY();";
                     IsActive = (string)reader["IsActive"];
                     IssueReason = (string)reader["IssueReason"];
                     LicenseClass = (string)reader["ClassName"];
+                    LicenseClassID = (int)reader["LicenseClassID"];
+                    ApplicationID = (int)reader["ApplicationID"];
 
                     if (reader["Notes"] != DBNull.Value)
                     {
@@ -319,8 +324,116 @@ SELECT SCOPE_IDENTITY();";
             return dt;
 
         }
+        public static bool SetLicenseActiveOrNot(int LicenseID,bool ActiveOrNoT)
+        {
+
+            int rowsAffected = 0;
+            SqlConnection connection = new SqlConnection(clsDataLayerSettings.ConnectionString);
+
+            string query = @"update Licenses set IsActive = @isActive where LicenseID = @LicenseID
+";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
+            command.Parameters.AddWithValue("@isActive", ActiveOrNoT);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
+
+        public static bool GetPersonLicenseByApplicationID(int ApplicationID,ref int LicenseID, ref int DriverID,
+            ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes, ref string IssueReason
+            , ref string IsActive, ref string LicenseClass, ref int LicenseClassID)
+        {
+
+            bool isFound = false;
+            SqlConnection conn = new SqlConnection(clsDataLayerSettings.ConnectionString);
 
 
+            string query = @"
+                 SELECT        Licenses.LicenseID, Licenses.DriverID,  LicenseClassID ,Licenses.IssueDate, Licenses.ExpirationDate,
+                Licenses.Notes, 
+                case 
+                when IsActive = 0 then 'Not Active'
+                when IsActive = 1 then 'Active'
+                end as isActive
+                ,
+                case 
+                when IssueReason = 1 then 'First Time'
+                when IssueReason = 2 then 'Renew'
+                when IssueReason = 3 then 'Replacement for Damaged'
+                when issueReason = 4 then 'Replacement for Lost'
+                end as issueReason
+                , 
+                LicenseClasses.ClassName
+                FROM            Licenses INNER JOIN
+                Drivers ON Licenses.DriverID = Drivers.DriverID INNER JOIN
+                LicenseClasses ON Licenses.LicenseClass = LicenseClasses.LicenseClassID where ApplicationID = @ApplicationID;;";
+
+            SqlCommand command = new SqlCommand(query, conn);
+
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    isFound = true;
+                    DriverID = (int)reader["DriverID"];
+                    IssueDate = (DateTime)reader["IssueDate"];
+                    ExpirationDate = (DateTime)reader["ExpirationDate"];
+                    IsActive = (string)reader["IsActive"];
+                    IssueReason = (string)reader["IssueReason"];
+                    LicenseClass = (string)reader["ClassName"];
+                    LicenseClassID = (int)reader["LicenseClassID"];
+                    LicenseID = (int)reader["LicenseID"];
+
+                    if (reader["Notes"] != DBNull.Value)
+                    {
+                        Notes = (string)reader["Notes"];
+
+                    }
+                    else
+                    {
+                        Notes = "";
+                    }
+                }
+                else
+                {
+                    isFound = false;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return isFound;
+        }
 
 
     }

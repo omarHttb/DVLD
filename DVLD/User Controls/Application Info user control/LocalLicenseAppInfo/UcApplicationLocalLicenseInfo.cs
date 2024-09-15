@@ -88,7 +88,7 @@ namespace DVLD.Application_Info_user_control
 
         private void LlShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmDriverLicenseInfo frm = new frmDriverLicenseInfo(_clsApplications.ApplicantPersonID);
+            frmDriverLicenseInfo frm = new frmDriverLicenseInfo(_clsApplications.ApplicantPersonID,ApplicattionID);
             frm.ShowDialog();
         }
     }

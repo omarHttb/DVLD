@@ -1,4 +1,5 @@
 ﻿using BusinessLayerDVLD;
+using DVLD.License.International;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,6 +48,21 @@ namespace DVLD.License.Driver_License_Info
             lblRecords.Text =  DgvAllLocalLicense.RowCount.ToString();
             DgvInternationalLicenses.DataSource = clsInternationalLicense.GetAllPersonInternationalLicense(ucSearchForPerson1.PersonID);
             lblInternationalLicenseRecord.Text = DgvInternationalLicenses.RowCount.ToString();
+        }
+
+        private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+                frmDriverLicenseInfo frm = new frmDriverLicenseInfo(ucSearchForPerson1.PersonID, (int)DgvAllLocalLicense.CurrentRow.Cells[0].Value);
+                frm.ShowDialog();
+            
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmShowInternationalLicenseInfo frm = new frmShowInternationalLicenseInfo(ucSearchForPerson1.PersonID, (int)DgvInternationalLicenses.
+                CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
         }
     }
 }

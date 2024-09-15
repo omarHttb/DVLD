@@ -91,13 +91,16 @@ namespace DVLD.UserControls
                     if (LoadBy == enLoadBy.PersonId)
                     {
                         _People = clsPeople.FindPersonById(PersonID);
-                        lblPersonId.Text = txtSearch.Text;
+                        lblPersonId.Text = _People.ID.ToString();
+                        txtSearch.Text = _People.ID.ToString();
+                        PersonID = _People.ID;
                         _Countries = clsCountries.FindCountryPerson(PersonID);
                     }
                     else
                     {
                         _People = clsPeople.FindPersonByNationalNumber(NationalNo);
                         lblPersonId.Text = _People.ID.ToString();
+                        PersonID = _People.ID;
 
                         _Countries = clsCountries.FindCountryPerson(_People.ID);
                     }

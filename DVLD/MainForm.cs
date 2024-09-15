@@ -18,6 +18,11 @@ using DVLD.LocalApplicationFiles.ManageLocalApplications;
 using DVLD.ManageDrivers;
 using DVLD.License.International;
 using DVLD.InternationalLicense;
+using DVLD.License.Renew_Local_Driving_License;
+using DVLD.License.Replace_License_For_Lost_or_damaged;
+using DVLD.Detain;
+using DVLD.Detain.Release_Detain_License;
+using DVLD.Detain.ManageDetainedLicense;
 
 namespace DVLD
 {
@@ -185,6 +190,36 @@ namespace DVLD
         {
             frmIssueInternationalLicense frm = new frmIssueInternationalLicense();
             frm.ShowDialog();
+        }
+
+        private void btnRenweLicense_Click(object sender, EventArgs e)
+        {
+            frmRenewLocalDrivingLicense frmRenewLocalDrivingLicense = new frmRenewLocalDrivingLicense();
+            frmRenewLocalDrivingLicense.ShowDialog();
+        }
+
+        private void BtnReplacementOfLostOrDamagedLicenses_Click(object sender, EventArgs e)
+        {
+            frmReplaceLicenseLostOrDamaged frm = new frmReplaceLicenseLostOrDamaged();
+            frm.ShowDialog();
+        }
+
+        private void btnDetainLicense_Click_1(object sender, EventArgs e)
+        {
+            frmDetainLicense frm = new frmDetainLicense();
+            frm.ShowDialog();
+        }
+
+        private void BtnRelaseDetainedLicense_Click(object sender, EventArgs e)
+        {
+            frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense();
+            frm.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            frmManageDetainedLicense frmManageDetainedLicense = new frmManageDetainedLicense();
+            frmManageDetainedLicense.ShowDialog();
         }
     }
 }

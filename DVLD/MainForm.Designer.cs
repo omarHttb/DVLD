@@ -42,29 +42,34 @@
             this.label2 = new System.Windows.Forms.Label();
             this.BtnPeopleManagement = new System.Windows.Forms.Button();
             this.TbDrivingLicenseMenu = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.btnDetainLicense = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.BtnRelaseDetainedLicense = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.btnDetainLicense = new System.Windows.Forms.Button();
+            this.BtnRelaseDetainedLicense = new System.Windows.Forms.Button();
             this.btnLocalLicense = new System.Windows.Forms.Button();
             this.btnNewGlobalLicenses = new System.Windows.Forms.Button();
             this.btnRenweLicense = new System.Windows.Forms.Button();
             this.BtnReplacementOfLostOrDamagedLicenses = new System.Windows.Forms.Button();
             this.TpManageApplicationMenu = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.BtnDrivers = new System.Windows.Forms.Button();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnManageGDLApplication = new System.Windows.Forms.Button();
-            this.label28 = new System.Windows.Forms.Label();
             this.BtnManageLDLApplication = new System.Windows.Forms.Button();
-            this.label26 = new System.Windows.Forms.Label();
             this.TbApplicationAndTestTypesMenu = new System.Windows.Forms.TabPage();
             this.label20 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -87,9 +92,6 @@
             this.changePasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.PnlMainMenu.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.TbPeopleAndUsers.SuspendLayout();
@@ -271,18 +273,20 @@
             // TbDrivingLicenseMenu
             // 
             this.TbDrivingLicenseMenu.BackColor = System.Drawing.Color.DimGray;
+            this.TbDrivingLicenseMenu.Controls.Add(this.label13);
+            this.TbDrivingLicenseMenu.Controls.Add(this.button1);
             this.TbDrivingLicenseMenu.Controls.Add(this.label11);
             this.TbDrivingLicenseMenu.Controls.Add(this.label5);
             this.TbDrivingLicenseMenu.Controls.Add(this.label3);
             this.TbDrivingLicenseMenu.Controls.Add(this.label24);
-            this.TbDrivingLicenseMenu.Controls.Add(this.btnDetainLicense);
             this.TbDrivingLicenseMenu.Controls.Add(this.label21);
             this.TbDrivingLicenseMenu.Controls.Add(this.label12);
-            this.TbDrivingLicenseMenu.Controls.Add(this.BtnRelaseDetainedLicense);
             this.TbDrivingLicenseMenu.Controls.Add(this.label14);
             this.TbDrivingLicenseMenu.Controls.Add(this.label17);
             this.TbDrivingLicenseMenu.Controls.Add(this.label18);
             this.TbDrivingLicenseMenu.Controls.Add(this.label19);
+            this.TbDrivingLicenseMenu.Controls.Add(this.btnDetainLicense);
+            this.TbDrivingLicenseMenu.Controls.Add(this.BtnRelaseDetainedLicense);
             this.TbDrivingLicenseMenu.Controls.Add(this.btnLocalLicense);
             this.TbDrivingLicenseMenu.Controls.Add(this.btnNewGlobalLicenses);
             this.TbDrivingLicenseMenu.Controls.Add(this.btnRenweLicense);
@@ -295,6 +299,66 @@
             this.TbDrivingLicenseMenu.TabIndex = 1;
             this.TbDrivingLicenseMenu.Text = "License Services";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(518, 538);
+            this.label13.MaximumSize = new System.Drawing.Size(160, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(159, 48);
+            this.label13.TabIndex = 52;
+            this.label13.Text = "Manage Detained Licenses";
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::DVLD.Properties.Resources.folder;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(532, 441);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 94);
+            this.button1.TabIndex = 51;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.LightCoral;
+            this.label11.Location = new System.Drawing.Point(99, 390);
+            this.label11.Name = "label11";
+            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label11.Size = new System.Drawing.Size(372, 31);
+            this.label11.TabIndex = 50;
+            this.label11.Text = "Detain Or Release License";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.LightCoral;
+            this.label5.Location = new System.Drawing.Point(47, 128);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label5.Size = new System.Drawing.Size(507, 31);
+            this.label5.TabIndex = 49;
+            this.label5.Text = "New Local Or International License";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.LightCoral;
+            this.label3.Location = new System.Drawing.Point(789, 128);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label3.Size = new System.Drawing.Size(374, 31);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "Replace Or Renew License";
+            // 
             // label24
             // 
             this.label24.AutoSize = true;
@@ -305,17 +369,6 @@
             this.label24.Size = new System.Drawing.Size(134, 24);
             this.label24.TabIndex = 47;
             this.label24.Text = "Detain License";
-            // 
-            // btnDetainLicense
-            // 
-            this.btnDetainLicense.BackgroundImage = global::DVLD.Properties.Resources.hand;
-            this.btnDetainLicense.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDetainLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetainLicense.Location = new System.Drawing.Point(131, 441);
-            this.btnDetainLicense.Name = "btnDetainLicense";
-            this.btnDetainLicense.Size = new System.Drawing.Size(121, 94);
-            this.btnDetainLicense.TabIndex = 46;
-            this.btnDetainLicense.UseVisualStyleBackColor = true;
             // 
             // label21
             // 
@@ -341,17 +394,6 @@
             this.label12.TabIndex = 41;
             this.label12.Text = "Release Detained Driving License";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BtnRelaseDetainedLicense
-            // 
-            this.BtnRelaseDetainedLicense.BackgroundImage = global::DVLD.Properties.Resources.key;
-            this.BtnRelaseDetainedLicense.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnRelaseDetainedLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRelaseDetainedLicense.Location = new System.Drawing.Point(336, 441);
-            this.BtnRelaseDetainedLicense.Name = "BtnRelaseDetainedLicense";
-            this.BtnRelaseDetainedLicense.Size = new System.Drawing.Size(116, 94);
-            this.BtnRelaseDetainedLicense.TabIndex = 8;
-            this.BtnRelaseDetainedLicense.UseVisualStyleBackColor = true;
             // 
             // label14
             // 
@@ -405,6 +447,30 @@
             this.label19.Text = "New Local Driving License";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnDetainLicense
+            // 
+            this.btnDetainLicense.BackgroundImage = global::DVLD.Properties.Resources.hand;
+            this.btnDetainLicense.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDetainLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetainLicense.Location = new System.Drawing.Point(131, 441);
+            this.btnDetainLicense.Name = "btnDetainLicense";
+            this.btnDetainLicense.Size = new System.Drawing.Size(121, 94);
+            this.btnDetainLicense.TabIndex = 46;
+            this.btnDetainLicense.UseVisualStyleBackColor = true;
+            this.btnDetainLicense.Click += new System.EventHandler(this.btnDetainLicense_Click_1);
+            // 
+            // BtnRelaseDetainedLicense
+            // 
+            this.BtnRelaseDetainedLicense.BackgroundImage = global::DVLD.Properties.Resources.key;
+            this.BtnRelaseDetainedLicense.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnRelaseDetainedLicense.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRelaseDetainedLicense.Location = new System.Drawing.Point(336, 441);
+            this.BtnRelaseDetainedLicense.Name = "BtnRelaseDetainedLicense";
+            this.BtnRelaseDetainedLicense.Size = new System.Drawing.Size(116, 94);
+            this.BtnRelaseDetainedLicense.TabIndex = 8;
+            this.BtnRelaseDetainedLicense.UseVisualStyleBackColor = true;
+            this.BtnRelaseDetainedLicense.Click += new System.EventHandler(this.BtnRelaseDetainedLicense_Click);
+            // 
             // btnLocalLicense
             // 
             this.btnLocalLicense.BackgroundImage = global::DVLD.Properties.Resources.place;
@@ -439,6 +505,7 @@
             this.btnRenweLicense.Size = new System.Drawing.Size(119, 94);
             this.btnRenweLicense.TabIndex = 7;
             this.btnRenweLicense.UseVisualStyleBackColor = true;
+            this.btnRenweLicense.Click += new System.EventHandler(this.btnRenweLicense_Click);
             // 
             // BtnReplacementOfLostOrDamagedLicenses
             // 
@@ -450,19 +517,20 @@
             this.BtnReplacementOfLostOrDamagedLicenses.Size = new System.Drawing.Size(119, 94);
             this.BtnReplacementOfLostOrDamagedLicenses.TabIndex = 9;
             this.BtnReplacementOfLostOrDamagedLicenses.UseVisualStyleBackColor = true;
+            this.BtnReplacementOfLostOrDamagedLicenses.Click += new System.EventHandler(this.BtnReplacementOfLostOrDamagedLicenses_Click);
             // 
             // TpManageApplicationMenu
             // 
             this.TpManageApplicationMenu.BackColor = System.Drawing.Color.DimGray;
             this.TpManageApplicationMenu.Controls.Add(this.label4);
+            this.TpManageApplicationMenu.Controls.Add(this.label1);
+            this.TpManageApplicationMenu.Controls.Add(this.label28);
+            this.TpManageApplicationMenu.Controls.Add(this.label26);
             this.TpManageApplicationMenu.Controls.Add(this.BtnDrivers);
             this.TpManageApplicationMenu.Controls.Add(this.pictureBox8);
             this.TpManageApplicationMenu.Controls.Add(this.pictureBox7);
-            this.TpManageApplicationMenu.Controls.Add(this.label1);
             this.TpManageApplicationMenu.Controls.Add(this.btnManageGDLApplication);
-            this.TpManageApplicationMenu.Controls.Add(this.label28);
             this.TpManageApplicationMenu.Controls.Add(this.BtnManageLDLApplication);
-            this.TpManageApplicationMenu.Controls.Add(this.label26);
             this.TpManageApplicationMenu.Location = new System.Drawing.Point(4, 33);
             this.TpManageApplicationMenu.Name = "TpManageApplicationMenu";
             this.TpManageApplicationMenu.Padding = new System.Windows.Forms.Padding(3);
@@ -478,6 +546,40 @@
             this.label4.Size = new System.Drawing.Size(75, 24);
             this.label4.TabIndex = 36;
             this.label4.Text = "Drivers";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(326, 250);
+            this.label1.MaximumSize = new System.Drawing.Size(190, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(190, 72);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Manage International driving license Applications";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(112, 250);
+            this.label28.MaximumSize = new System.Drawing.Size(150, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(136, 72);
+            this.label28.TabIndex = 30;
+            this.label28.Text = "Manage Local driving license Applications";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Lucida Calligraphy", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.LightCoral;
+            this.label26.Location = new System.Drawing.Point(158, 42);
+            this.label26.Name = "label26";
+            this.label26.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label26.Size = new System.Drawing.Size(815, 36);
+            this.label26.TabIndex = 28;
+            this.label26.Text = "Manage Local and global license And Drivers Menu";
             // 
             // BtnDrivers
             // 
@@ -512,17 +614,6 @@
             this.pictureBox7.TabIndex = 33;
             this.pictureBox7.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(326, 250);
-            this.label1.MaximumSize = new System.Drawing.Size(190, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 72);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "Manage International driving license Applications";
-            // 
             // btnManageGDLApplication
             // 
             this.btnManageGDLApplication.BackgroundImage = global::DVLD.Properties.Resources.folder;
@@ -535,17 +626,6 @@
             this.btnManageGDLApplication.UseVisualStyleBackColor = true;
             this.btnManageGDLApplication.Click += new System.EventHandler(this.btnManageGDLApplication_Click);
             // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(112, 250);
-            this.label28.MaximumSize = new System.Drawing.Size(150, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(136, 72);
-            this.label28.TabIndex = 30;
-            this.label28.Text = "Manage Local driving license Applications";
-            // 
             // BtnManageLDLApplication
             // 
             this.BtnManageLDLApplication.BackgroundImage = global::DVLD.Properties.Resources.folder;
@@ -557,18 +637,6 @@
             this.BtnManageLDLApplication.TabIndex = 29;
             this.BtnManageLDLApplication.UseVisualStyleBackColor = true;
             this.BtnManageLDLApplication.Click += new System.EventHandler(this.BtnManageLDLApplication_Click);
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Lucida Calligraphy", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.LightCoral;
-            this.label26.Location = new System.Drawing.Point(158, 42);
-            this.label26.Name = "label26";
-            this.label26.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label26.Size = new System.Drawing.Size(815, 36);
-            this.label26.TabIndex = 28;
-            this.label26.Text = "Manage Local and global license And Drivers Menu";
             // 
             // TbApplicationAndTestTypesMenu
             // 
@@ -814,42 +882,6 @@
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.LightCoral;
-            this.label3.Location = new System.Drawing.Point(789, 128);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(374, 31);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "Replace Or Renew License";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.LightCoral;
-            this.label5.Location = new System.Drawing.Point(47, 128);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label5.Size = new System.Drawing.Size(507, 31);
-            this.label5.TabIndex = 49;
-            this.label5.Text = "New Local Or International License";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Lucida Calligraphy", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.LightCoral;
-            this.label11.Location = new System.Drawing.Point(99, 390);
-            this.label11.Name = "label11";
-            this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label11.Size = new System.Drawing.Size(372, 31);
-            this.label11.TabIndex = 50;
-            this.label11.Text = "Detain Or Release License";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -952,6 +984,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button1;
     }
 }
 

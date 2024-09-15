@@ -50,13 +50,14 @@
             this.LLlicenseInfo = new System.Windows.Forms.LinkLabel();
             this.LLShowLicenseHistory = new System.Windows.Forms.LinkLabel();
             this.ucSearchForLicense1 = new DVLD.User_Controls.License.SearchForLicenseInfo.UcSearchForLicense();
+            this.label1 = new System.Windows.Forms.Label();
             this.GbApplicationBasicInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(912, 687);
+            this.btnClose.Location = new System.Drawing.Point(913, 742);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 32);
             this.btnClose.TabIndex = 1;
@@ -67,7 +68,7 @@
             // btnIssue
             // 
             this.btnIssue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIssue.Location = new System.Drawing.Point(993, 687);
+            this.btnIssue.Location = new System.Drawing.Point(994, 742);
             this.btnIssue.Name = "btnIssue";
             this.btnIssue.Size = new System.Drawing.Size(75, 32);
             this.btnIssue.TabIndex = 2;
@@ -94,7 +95,7 @@
             this.GbApplicationBasicInfo.Controls.Add(this.lblLocalLicenseID);
             this.GbApplicationBasicInfo.Controls.Add(this.lblInternationalAppId);
             this.GbApplicationBasicInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbApplicationBasicInfo.Location = new System.Drawing.Point(34, 485);
+            this.GbApplicationBasicInfo.Location = new System.Drawing.Point(12, 552);
             this.GbApplicationBasicInfo.Name = "GbApplicationBasicInfo";
             this.GbApplicationBasicInfo.Size = new System.Drawing.Size(786, 187);
             this.GbApplicationBasicInfo.TabIndex = 5;
@@ -265,7 +266,7 @@
             // 
             this.LLlicenseInfo.AutoSize = true;
             this.LLlicenseInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LLlicenseInfo.Location = new System.Drawing.Point(296, 687);
+            this.LLlicenseInfo.Location = new System.Drawing.Point(299, 742);
             this.LLlicenseInfo.Name = "LLlicenseInfo";
             this.LLlicenseInfo.Size = new System.Drawing.Size(129, 18);
             this.LLlicenseInfo.TabIndex = 9;
@@ -277,7 +278,7 @@
             // 
             this.LLShowLicenseHistory.AutoSize = true;
             this.LLShowLicenseHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LLShowLicenseHistory.Location = new System.Drawing.Point(62, 687);
+            this.LLShowLicenseHistory.Location = new System.Drawing.Point(65, 742);
             this.LLShowLicenseHistory.Name = "LLShowLicenseHistory";
             this.LLShowLicenseHistory.Size = new System.Drawing.Size(152, 18);
             this.LLShowLicenseHistory.TabIndex = 8;
@@ -288,21 +289,36 @@
             // ucSearchForLicense1
             // 
             this.ucSearchForLicense1.DriverID = -1;
+            this.ucSearchForLicense1.ExpirationDate = new System.DateTime(((long)(0)));
             this.ucSearchForLicense1.IsActive = "";
             this.ucSearchForLicense1.IsDetained = "";
+            this.ucSearchForLicense1.LicenseClassID = 0;
             this.ucSearchForLicense1.LicenseID = -1;
-            this.ucSearchForLicense1.Location = new System.Drawing.Point(12, 12);
+            this.ucSearchForLicense1.Location = new System.Drawing.Point(12, 79);
             this.ucSearchForLicense1.Name = "ucSearchForLicense1";
             this.ucSearchForLicense1.NationalNo = "";
+            this.ucSearchForLicense1.Notes = null;
             this.ucSearchForLicense1.PersonId = -1;
             this.ucSearchForLicense1.Size = new System.Drawing.Size(1070, 467);
             this.ucSearchForLicense1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(379, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(338, 31);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Issue International License";
             // 
             // frmIssueInternationalLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1080, 731);
+            this.ClientSize = new System.Drawing.Size(1080, 775);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.LLlicenseInfo);
             this.Controls.Add(this.LLShowLicenseHistory);
             this.Controls.Add(this.GbApplicationBasicInfo);
@@ -342,5 +358,6 @@
         private System.Windows.Forms.Label lblInternationalAppId;
         private System.Windows.Forms.LinkLabel LLlicenseInfo;
         private System.Windows.Forms.LinkLabel LLShowLicenseHistory;
+        private System.Windows.Forms.Label label1;
     }
 }

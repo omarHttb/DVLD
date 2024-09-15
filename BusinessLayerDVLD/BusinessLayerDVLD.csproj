@@ -53,6 +53,7 @@
     <Compile Include="clsManageApplicationTypes.cs" />
     <Compile Include="clsManageTestTypes.cs" />
     <Compile Include="clsPeople.cs" />
+    <Compile Include="clsRenewLicense.cs" />
     <Compile Include="clsTakeTest.cs" />
     <Compile Include="clsTestsAppointments.cs" />
     <Compile Include="clsUsers.cs" />

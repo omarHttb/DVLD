@@ -1,4 +1,5 @@
 ﻿using BusinessLayerDVLD;
+using DVLD.License.Driver_License_Info;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -74,6 +75,12 @@ namespace DVLD.ManageDrivers
         {
             DgvDrivers.DataSource = clsDrivers.GetFilteredResult(filter,TxtFilter.Text);
             lblRecords.Text= DgvDrivers.RowCount.ToString();    
+        }
+
+        private void showLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLicenseHistory frm = new frmLicenseHistory((int)DgvDrivers.CurrentRow.Cells[1].Value);
+            frm.ShowDialog();   
         }
     }
 
