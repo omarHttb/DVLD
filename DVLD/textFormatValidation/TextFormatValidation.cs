@@ -29,7 +29,7 @@ namespace DVLD.textFormatValidation
                 {
                     // Use IdnMapping class to convert Unicode domain names.
                     var idn = new IdnMapping();
-
+                    
                     // Pull out and process domain name (throws ArgumentException on invalid)
                     string domainName = idn.GetAscii(match.Groups[2].Value);
 

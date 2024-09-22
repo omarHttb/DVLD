@@ -29,6 +29,18 @@
         private void InitializeComponent()
         {
             this.gbReleaseApplicaiton = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblReleaseBy = new System.Windows.Forms.Label();
+            this.lblReleaseDate = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblFineFees = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbl341 = new System.Windows.Forms.Label();
+            this.lblReleaseApplicationID = new System.Windows.Forms.Label();
+            this.lblTotalFees = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblApplicationFees = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblCreatedBy = new System.Windows.Forms.Label();
@@ -37,22 +49,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblDetainID = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblApplicationFees = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblTotalFees = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lbl341 = new System.Windows.Forms.Label();
-            this.lblReleaseApplicationID = new System.Windows.Forms.Label();
-            this.lblFineFees = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.llLicenseHistory = new System.Windows.Forms.LinkLabel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnReleaseLicense = new System.Windows.Forms.Button();
-            this.lblReleaseDate = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblReleaseBy = new System.Windows.Forms.Label();
             this.ucSearchForLicense1 = new DVLD.User_Controls.License.SearchForLicenseInfo.UcSearchForLicense();
             this.ucSearchForLicense2 = new DVLD.User_Controls.License.SearchForLicenseInfo.UcSearchForLicense();
             this.gbReleaseApplicaiton.SuspendLayout();
@@ -87,6 +87,122 @@
             this.gbReleaseApplicaiton.TabIndex = 2;
             this.gbReleaseApplicaiton.TabStop = false;
             this.gbReleaseApplicaiton.Text = "Release Detained License Info";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(546, 161);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(103, 20);
+            this.label12.TabIndex = 43;
+            this.label12.Text = "Released By:";
+            // 
+            // lblReleaseBy
+            // 
+            this.lblReleaseBy.AutoSize = true;
+            this.lblReleaseBy.Location = new System.Drawing.Point(699, 161);
+            this.lblReleaseBy.Name = "lblReleaseBy";
+            this.lblReleaseBy.Size = new System.Drawing.Size(36, 20);
+            this.lblReleaseBy.TabIndex = 42;
+            this.lblReleaseBy.Text = "???";
+            // 
+            // lblReleaseDate
+            // 
+            this.lblReleaseDate.AutoSize = true;
+            this.lblReleaseDate.Location = new System.Drawing.Point(699, 203);
+            this.lblReleaseDate.Name = "lblReleaseDate";
+            this.lblReleaseDate.Size = new System.Drawing.Size(36, 20);
+            this.lblReleaseDate.TabIndex = 41;
+            this.lblReleaseDate.Text = "???";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(538, 203);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(111, 20);
+            this.label11.TabIndex = 40;
+            this.label11.Text = "Release Date:";
+            // 
+            // lblFineFees
+            // 
+            this.lblFineFees.AutoSize = true;
+            this.lblFineFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFineFees.Location = new System.Drawing.Point(170, 161);
+            this.lblFineFees.Name = "lblFineFees";
+            this.lblFineFees.Size = new System.Drawing.Size(36, 20);
+            this.lblFineFees.TabIndex = 39;
+            this.lblFineFees.Text = "???";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(65, 161);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 20);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Fine Fees:";
+            // 
+            // lbl341
+            // 
+            this.lbl341.AutoSize = true;
+            this.lbl341.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl341.Location = new System.Drawing.Point(521, 120);
+            this.lbl341.Name = "lbl341";
+            this.lbl341.Size = new System.Drawing.Size(128, 20);
+            this.lbl341.TabIndex = 36;
+            this.lbl341.Text = "R.Application ID:";
+            // 
+            // lblReleaseApplicationID
+            // 
+            this.lblReleaseApplicationID.AutoSize = true;
+            this.lblReleaseApplicationID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReleaseApplicationID.Location = new System.Drawing.Point(699, 120);
+            this.lblReleaseApplicationID.Name = "lblReleaseApplicationID";
+            this.lblReleaseApplicationID.Size = new System.Drawing.Size(36, 20);
+            this.lblReleaseApplicationID.TabIndex = 37;
+            this.lblReleaseApplicationID.Text = "???";
+            // 
+            // lblTotalFees
+            // 
+            this.lblTotalFees.AutoSize = true;
+            this.lblTotalFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalFees.Location = new System.Drawing.Point(170, 203);
+            this.lblTotalFees.Name = "lblTotalFees";
+            this.lblTotalFees.Size = new System.Drawing.Size(36, 20);
+            this.lblTotalFees.TabIndex = 35;
+            this.lblTotalFees.Text = "???";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(64, 203);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(85, 20);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Tota Fees:";
+            // 
+            // lblApplicationFees
+            // 
+            this.lblApplicationFees.AutoSize = true;
+            this.lblApplicationFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApplicationFees.Location = new System.Drawing.Point(170, 120);
+            this.lblApplicationFees.Name = "lblApplicationFees";
+            this.lblApplicationFees.Size = new System.Drawing.Size(36, 20);
+            this.lblApplicationFees.TabIndex = 19;
+            this.lblApplicationFees.Text = "???";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(18, 120);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(131, 20);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Application Fees:";
             // 
             // label7
             // 
@@ -160,86 +276,6 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Detain ID:";
             // 
-            // lblApplicationFees
-            // 
-            this.lblApplicationFees.AutoSize = true;
-            this.lblApplicationFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApplicationFees.Location = new System.Drawing.Point(170, 120);
-            this.lblApplicationFees.Name = "lblApplicationFees";
-            this.lblApplicationFees.Size = new System.Drawing.Size(36, 20);
-            this.lblApplicationFees.TabIndex = 19;
-            this.lblApplicationFees.Text = "???";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(18, 120);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(131, 20);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Application Fees:";
-            // 
-            // lblTotalFees
-            // 
-            this.lblTotalFees.AutoSize = true;
-            this.lblTotalFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalFees.Location = new System.Drawing.Point(170, 203);
-            this.lblTotalFees.Name = "lblTotalFees";
-            this.lblTotalFees.Size = new System.Drawing.Size(36, 20);
-            this.lblTotalFees.TabIndex = 35;
-            this.lblTotalFees.Text = "???";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(64, 203);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 20);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "Tota Fees:";
-            // 
-            // lbl341
-            // 
-            this.lbl341.AutoSize = true;
-            this.lbl341.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl341.Location = new System.Drawing.Point(521, 120);
-            this.lbl341.Name = "lbl341";
-            this.lbl341.Size = new System.Drawing.Size(128, 20);
-            this.lbl341.TabIndex = 36;
-            this.lbl341.Text = "R.Application ID:";
-            // 
-            // lblReleaseApplicationID
-            // 
-            this.lblReleaseApplicationID.AutoSize = true;
-            this.lblReleaseApplicationID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReleaseApplicationID.Location = new System.Drawing.Point(699, 120);
-            this.lblReleaseApplicationID.Name = "lblReleaseApplicationID";
-            this.lblReleaseApplicationID.Size = new System.Drawing.Size(36, 20);
-            this.lblReleaseApplicationID.TabIndex = 37;
-            this.lblReleaseApplicationID.Text = "???";
-            // 
-            // lblFineFees
-            // 
-            this.lblFineFees.AutoSize = true;
-            this.lblFineFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFineFees.Location = new System.Drawing.Point(170, 161);
-            this.lblFineFees.Name = "lblFineFees";
-            this.lblFineFees.Size = new System.Drawing.Size(36, 20);
-            this.lblFineFees.TabIndex = 39;
-            this.lblFineFees.Text = "???";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(65, 161);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 20);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "Fine Fees:";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -255,7 +291,7 @@
             // 
             this.llLicenseHistory.AutoSize = true;
             this.llLicenseHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llLicenseHistory.Location = new System.Drawing.Point(47, 827);
+            this.llLicenseHistory.Location = new System.Drawing.Point(57, 832);
             this.llLicenseHistory.Name = "llLicenseHistory";
             this.llLicenseHistory.Size = new System.Drawing.Size(161, 20);
             this.llLicenseHistory.TabIndex = 16;
@@ -284,42 +320,6 @@
             this.btnReleaseLicense.Text = "Release License";
             this.btnReleaseLicense.UseVisualStyleBackColor = true;
             this.btnReleaseLicense.Click += new System.EventHandler(this.btnReleaseLicense_Click);
-            // 
-            // lblReleaseDate
-            // 
-            this.lblReleaseDate.AutoSize = true;
-            this.lblReleaseDate.Location = new System.Drawing.Point(699, 203);
-            this.lblReleaseDate.Name = "lblReleaseDate";
-            this.lblReleaseDate.Size = new System.Drawing.Size(36, 20);
-            this.lblReleaseDate.TabIndex = 41;
-            this.lblReleaseDate.Text = "???";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(538, 203);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(111, 20);
-            this.label11.TabIndex = 40;
-            this.label11.Text = "Release Date:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(546, 161);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(103, 20);
-            this.label12.TabIndex = 43;
-            this.label12.Text = "Released By:";
-            // 
-            // lblReleaseBy
-            // 
-            this.lblReleaseBy.AutoSize = true;
-            this.lblReleaseBy.Location = new System.Drawing.Point(699, 161);
-            this.lblReleaseBy.Name = "lblReleaseBy";
-            this.lblReleaseBy.Size = new System.Drawing.Size(36, 20);
-            this.lblReleaseBy.TabIndex = 42;
-            this.lblReleaseBy.Text = "???";
             // 
             // ucSearchForLicense1
             // 

@@ -313,7 +313,7 @@
             // 
             // button1
             // 
-            this.button1.BackgroundImage = global::DVLD.Properties.Resources.folder;
+            this.button1.BackgroundImage = global::DVLD.Properties.Resources.recidivist;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(532, 441);
